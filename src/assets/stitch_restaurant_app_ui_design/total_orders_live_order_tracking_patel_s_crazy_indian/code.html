@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Patel's Crazy Indian - My Feasts &amp; Live Order Tracker</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Epilogue & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary-container": "#fffbff",
+            "surface-container": "#e7eeff",
+            "on-secondary-fixed-variant": "#653e00",
+            "primary-container": "#e02924",
+            "primary": "#bb010d",
+            "surface-container-low": "#f0f3ff",
+            "inverse-surface": "#263143",
+            "surface": "#f9f9ff",
+            "on-error-container": "#93000a",
+            "surface-dim": "#cfdaf2",
+            "surface-tint": "#bf0610",
+            "on-tertiary": "#ffffff",
+            "on-error": "#ffffff",
+            "on-surface-variant": "#5d3f3c",
+            "inverse-on-surface": "#ecf1ff",
+            "surface-container-high": "#dee8ff",
+            "on-tertiary-container": "#f7fff2",
+            "on-tertiary-fixed": "#002109",
+            "tertiary-fixed": "#7ffc97",
+            "surface-variant": "#d8e3fb",
+            "on-tertiary-fixed-variant": "#005320",
+            "inverse-primary": "#ffb4aa",
+            "on-secondary-fixed": "#2a1700",
+            "on-secondary-container": "#684000",
+            "surface-bright": "#f9f9ff",
+            "primary-fixed": "#ffdad5",
+            "tertiary": "#006b2c",
+            "on-background": "#111c2d",
+            "outline-variant": "#e6bdb8",
+            "on-primary": "#ffffff",
+            "tertiary-fixed-dim": "#62df7d",
+            "on-primary-fixed-variant": "#930007",
+            "on-surface": "#111c2d",
+            "outline": "#916f6a",
+            "background": "#f9f9ff",
+            "surface-container-lowest": "#ffffff",
+            "primary-fixed-dim": "#ffb4aa",
+            "error": "#ba1a1a",
+            "on-secondary": "#ffffff",
+            "secondary-fixed": "#ffddb8",
+            "secondary-container": "#fea619",
+            "error-container": "#ffdad6",
+            "secondary": "#855300",
+            "on-primary-fixed": "#410001",
+            "secondary-fixed-dim": "#ffb95f",
+            "surface-container-highest": "#d8e3fb",
+            "tertiary-container": "#00873a"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "gutter": "1rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "margin": "1rem",
+            "space-sm": "0.5rem",
+            "space-xl": "2rem"
+          },
+          "fontFamily": {
+            "headline-lg": ["Epilogue"],
+            "headline-md": ["Epilogue"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Epilogue"],
+            "display-lg": ["Epilogue"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Epilogue"],
+            "headline-lg-mobile": ["Epilogue"],
+            "title-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+            "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "display-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "800" }],
+            "display-lg": ["36px", { "lineHeight": "44px", "fontWeight": "800" }],
+            "label-sm": ["10px", { "lineHeight": "14px", "fontWeight": "700" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "headline-lg-mobile": ["22px", { "lineHeight": "30px", "fontWeight": "700" }],
+            "title-md": ["16px", { "lineHeight": "22px", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "700" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    @keyframes pulse-subtle {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.65; transform: scale(1.15); }
+    }
+    .animate-pulsate {
+      animation: pulse-subtle 1.8s infinite ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen pb-28 selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TOP APP BAR (Shared Component Anchor) -->
+<header class="fixed top-0 left-0 w-full z-40 flex justify-between items-center px-gutter h-14 bg-surface shadow-sm border-b border-outline-variant/30">
+<div class="flex items-center gap-space-sm">
+<button aria-label="Go back" class="w-9 h-9 rounded-full flex items-center justify-center text-on-surface hover:bg-surface-container active:scale-95 transition-all duration-150">
+<span class="material-symbols-outlined text-xl">arrow_back</span>
+</button>
+<div>
+<h1 class="font-headline-sm text-headline-sm text-primary font-bold tracking-tight">My Feasts &amp; Orders</h1>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<button aria-label="Help &amp; Live Support" class="w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container active:scale-95 transition-all duration-150">
+<span class="material-symbols-outlined text-xl">support_agent</span>
+</button>
+<button aria-label="Order Cart" class="w-9 h-9 rounded-full flex items-center justify-center text-primary hover:bg-surface-container active:scale-95 transition-all duration-150">
+<span class="material-symbols-outlined text-xl">shopping_bag</span>
+</button>
+</div>
+</header>
+<!-- MAIN SCROLLABLE CONTENT CONTAINER -->
+<main class="pt-16 max-w-md mx-auto px-margin space-y-space-lg">
+<!-- SEGMENTED TABS / FILTER -->
+<div class="pt-space-xs flex items-center justify-between p-1 bg-surface-container-high rounded-full border border-outline-variant/40">
+<button class="flex-1 py-2 px-space-md rounded-full bg-primary-container text-on-primary-container font-label-lg text-label-lg shadow-sm flex items-center justify-center gap-1.5 active:scale-95 transition-all duration-150">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed animate-pulsate"></span>
+<span>Live Orders (1)</span>
+</button>
+<button class="flex-1 py-2 px-space-md rounded-full text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg flex items-center justify-center gap-1.5 active:scale-95 transition-all duration-150">
+<span>Order History (14)</span>
+</button>
+</div>
+<!-- LIVE ORDER TRACKING HERO CARD -->
+<section class="bg-surface-container-lowest rounded-xl border border-secondary-container/30 shadow-md overflow-hidden relative">
+<!-- Festive Saffron & Vermilion Header Banner -->
+<div class="bg-gradient-to-r from-primary-container via-primary to-secondary-container p-space-md text-on-primary-container">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="bg-white/20 px-2 py-0.5 rounded-full text-label-sm font-label-sm tracking-wider uppercase">Order #PC-8492</span>
+<span class="bg-tertiary text-on-tertiary px-2 py-0.5 rounded-full text-label-sm font-label-sm font-bold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-white animate-pulsate"></span>
+              Live Feast
+            </span>
+</div>
+<span class="text-label-md font-label-md bg-white/10 px-2.5 py-0.5 rounded-full">8:42 PM ETA</span>
+</div>
+<div class="mt-space-sm">
+<h2 class="font-headline-md text-headline-md text-white font-extrabold tracking-tight">On the Way (Arriving in 14 mins)</h2>
+<p class="font-body-sm text-body-sm text-white/90 flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-sm">storefront</span>
+            Patel's Crazy Indian - Downtown Bistro
+          </p>
+</div>
+</div>
+<!-- MAP SIMULATION CARD WITH DYNAMIC ROUTE -->
+<div class="p-space-md bg-surface-container-low border-b border-outline-variant/30">
+<div class="relative w-full h-36 bg-surface-container rounded-lg overflow-hidden border border-outline-variant/40 flex flex-col justify-between p-space-sm shadow-inner">
+<!-- Background Stylized Map Pattern -->
+<div class="absolute inset-0 opacity-25 pointer-events-none">
+<div class="w-full h-full bg-[radial-gradient(#916f6a_1px,transparent_1px)] [background-size:16px_16px]"></div>
+</div>
+<!-- Route Graphic Simulation Path -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none stroke-primary" fill="none">
+<path class="opacity-80" d="M 40,85 C 110,40 180,95 320,38" stroke="currentColor" stroke-dasharray="6,4" stroke-width="3"></path>
+</svg>
+<!-- Restaurant Origin Marker -->
+<div class="absolute left-6 bottom-4 flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-white flex items-center justify-center shadow-md border-2 border-white">
+<span class="material-symbols-outlined text-base">restaurant</span>
+</div>
+<span class="font-label-sm text-label-sm font-bold bg-white/90 px-1.5 py-0.5 rounded mt-1 shadow-sm text-on-surface">Kitchen</span>
+</div>
+<!-- Moving Delivery Rider Marker -->
+<div class="absolute left-1/2 top-7 transform -translate-x-1/2 flex flex-col items-center z-10">
+<div class="w-9 h-9 rounded-full bg-primary text-white flex items-center justify-center shadow-lg border-2 border-white animate-bounce">
+<span class="material-symbols-outlined text-lg">two_wheeler</span>
+</div>
+<div class="bg-inverse-surface text-inverse-on-surface text-label-sm font-label-sm font-bold px-2 py-0.5 rounded-full mt-1 shadow-md whitespace-nowrap">
+              Vikram is 1.1 km away
+            </div>
+</div>
+<!-- Customer Destination Marker -->
+<div class="absolute right-6 top-3 flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-tertiary-container text-white flex items-center justify-center shadow-md border-2 border-white">
+<span class="material-symbols-outlined text-base">home</span>
+</div>
+<span class="font-label-sm text-label-sm font-bold bg-white/90 px-1.5 py-0.5 rounded mt-1 shadow-sm text-on-surface">Your Villa</span>
+</div>
+<!-- Map Footer Details -->
+<div class="relative z-10 mt-auto flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span class="bg-surface-container-lowest/80 backdrop-blur-sm px-2 py-0.5 rounded border border-outline-variant/30 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-primary">navigation</span>
+              Via MG Road Expressway
+            </span>
+<span class="bg-surface-container-lowest/80 backdrop-blur-sm px-2 py-0.5 rounded border border-outline-variant/30 font-bold text-primary">
+              Live GPS Sync
+            </span>
+</div>
+</div>
+<!-- Safe Handover PIN Badge -->
+<div class="mt-space-sm bg-secondary-fixed/50 border border-secondary-container/40 p-space-sm rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-secondary-container/20 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-lg">verified_user</span>
+</div>
+<div>
+<p class="font-label-md text-label-md font-bold text-on-secondary-fixed">Share Delivery PIN</p>
+<p class="font-body-sm text-body-sm text-on-secondary-fixed-variant">Provide code to rider upon arrival</p>
+</div>
+</div>
+<div class="bg-white px-3 py-1.5 rounded-md border-2 border-secondary-container shadow-sm font-headline-sm text-headline-sm font-extrabold text-primary tracking-widest">
+            4821
+          </div>
+</div>
+</div>
+<!-- MULTI-STEP DELIVERY PROGRESS TRACKER -->
+<div class="p-space-md border-b border-outline-variant/20 bg-surface-container-lowest">
+<h3 class="font-title-md text-title-md text-on-surface mb-space-md flex items-center justify-between">
+<span>Feast Preparation Track</span>
+<span class="text-label-md font-label-md text-primary font-bold">Step 3 of 4</span>
+</h3>
+<div class="space-y-space-md relative pl-7 before:absolute before:left-3 before:top-2 before:bottom-3 before:w-0.5 before:bg-outline-variant/40">
+<!-- Step 1: Confirmed -->
+<div class="relative">
+<div class="absolute -left-7 top-0 w-6 h-6 rounded-full bg-tertiary text-on-tertiary flex items-center justify-center ring-4 ring-white">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+<div>
+<h4 class="font-label-lg text-label-lg font-bold text-on-surface">Order Placed &amp; Confirmed</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Downtown Bistro accepted • 8:12 PM</p>
+</div>
+</div>
+<!-- Step 2: Thermal Sealed -->
+<div class="relative">
+<div class="absolute -left-7 top-0 w-6 h-6 rounded-full bg-tertiary text-on-tertiary flex items-center justify-center ring-4 ring-white">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<h4 class="font-label-lg text-label-lg font-bold text-on-surface">Chef Patel Garnish &amp; Thermal Sealed</h4>
+<span class="bg-secondary-fixed text-on-secondary-fixed text-label-sm font-label-sm px-1.5 py-0.2 rounded font-bold">Hot Sealed</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Packed in 100% spill-proof heat foil • 8:28 PM</p>
+</div>
+</div>
+<!-- Step 3: Out for Delivery (ACTIVE) -->
+<div class="relative">
+<div class="absolute -left-7 top-0 w-6 h-6 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center ring-4 ring-white shadow-sm">
+<span class="material-symbols-outlined text-sm animate-pulse">two_wheeler</span>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<h4 class="font-label-lg text-label-lg font-bold text-primary">Out for Delivery with Rider Vikram</h4>
+<span class="bg-primary text-white text-label-sm font-label-sm px-1.5 py-0.2 rounded-full font-bold">In Transit</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface font-medium">Navigating traffic • Estimated arriving in 14 mins</p>
+</div>
+</div>
+<!-- Step 4: Delivered -->
+<div class="relative">
+<div class="absolute -left-7 top-0 w-6 h-6 rounded-full bg-surface-container text-outline flex items-center justify-center ring-4 ring-white">
+<span class="material-symbols-outlined text-sm">home_pin</span>
+</div>
+<div>
+<h4 class="font-label-lg text-label-lg font-bold text-outline">Delivered at Doorstep</h4>
+<p class="font-body-sm text-body-sm text-outline">Contactless drop-off handover</p>
+</div>
+</div>
+</div>
+</div>
+<!-- DRIVER CONTACT CARD -->
+<div class="p-space-md bg-surface-container-low flex items-center justify-between gap-space-sm border-b border-outline-variant/20">
+<div class="flex items-center gap-space-sm">
+<div class="relative">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center text-primary font-headline-sm font-bold border-2 border-white shadow-sm overflow-hidden">
+<span class="material-symbols-outlined text-3xl">account_circle</span>
+</div>
+<span class="absolute -bottom-1 -right-1 bg-tertiary text-white w-4 h-4 rounded-full flex items-center justify-center text-[9px] border border-white">
+              ✓
+            </span>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<h4 class="font-label-lg text-label-lg font-bold text-on-surface">Vikram Singh</h4>
+<span class="bg-surface-container text-on-surface font-label-sm text-label-sm px-1.5 py-0.5 rounded font-bold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-xs text-secondary-container material-symbols-fill">star</span> 4.9
+              </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Delivered 2,400+ feasts • Masked</p>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<a aria-label="Call Rider" class="w-10 h-10 rounded-full bg-surface-container-lowest border border-outline-variant/40 text-primary flex items-center justify-center shadow-sm hover:bg-primary hover:text-white active:scale-95 transition-all duration-150" href="tel:123456789">
+<span class="material-symbols-outlined text-xl">call</span>
+</a>
+<a aria-label="WhatsApp Rider" class="w-10 h-10 rounded-full bg-tertiary-container text-on-tertiary flex items-center justify-center shadow-sm hover:opacity-90 active:scale-95 transition-all duration-150" href="#chat">
+<span class="material-symbols-outlined text-xl">chat</span>
+</a>
+</div>
+</div>
+<!-- LIVE ORDER ITEMS PREVIEW -->
+<div class="p-space-md bg-surface-container-lowest">
+<div class="flex items-start justify-between">
+<div class="space-y-1">
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-on-surface-variant font-bold">Feast Pack Contents</span>
+<p class="font-body-md text-body-md text-on-surface font-semibold">
+              Royal Dum Biryani (1x), Crazy Fire Golgappa Platter (1x), Mango Lassi (2x)
+            </p>
+</div>
+<span class="text-label-md font-label-md font-extrabold text-primary bg-primary-fixed/50 px-2 py-1 rounded">3 Items</span>
+</div>
+<div class="mt-space-md pt-space-sm border-t border-dashed border-outline-variant/40 flex items-center justify-between">
+<div class="flex items-center gap-1.5 text-tertiary font-label-md text-label-md font-bold">
+<span class="material-symbols-outlined text-base">eco</span>
+            Pure Veg &amp; Halal Certified
+          </div>
+<button class="font-label-md text-label-md text-primary font-bold hover:underline flex items-center gap-0.5">
+            View Full Bill &amp; Receipt
+            <span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- SECTION: PAST FEAST HISTORY -->
+<section class="space-y-space-md pt-space-xs">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">Past Feasts &amp; Re-order</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Relive your favorite aromatic banquets</p>
+</div>
+<button class="font-label-md text-label-md text-secondary font-bold hover:underline">
+          View All (14)
+        </button>
+</div>
+<!-- PAST ORDER CARD 1 -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 shadow-sm p-space-md space-y-space-md hover:shadow-md transition-shadow duration-200">
+<div class="flex items-start justify-between border-b border-outline-variant/20 pb-space-sm">
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Downtown Bistro</h3>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed-variant text-label-sm font-label-sm font-bold px-2 py-0.5 rounded-full flex items-center gap-0.5">
+<span class="material-symbols-outlined text-xs">check_circle</span> Delivered
+              </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Order #PC-8120 • 3 days ago (Sun, 18 Oct)</p>
+</div>
+<div class="text-right">
+<p class="font-headline-sm text-headline-sm font-extrabold text-on-surface">$28.62</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Paid via UPI</p>
+</div>
+</div>
+<!-- Dishes List -->
+<div class="space-y-1.5">
+<div class="flex items-center gap-2 text-body-md text-on-surface font-medium">
+<!-- Pure Veg Indicator Square Tag -->
+<span class="w-3.5 h-3.5 border border-tertiary flex items-center justify-center rounded-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+</span>
+<span>Smoky Butter Paneer (Jain)</span>
+<span class="bg-secondary-fixed/60 text-secondary text-label-sm font-label-sm px-1.5 rounded font-bold">Jain Prep</span>
+</div>
+<div class="flex items-center gap-2 text-body-md text-on-surface font-medium">
+<span class="w-3.5 h-3.5 border border-tertiary flex items-center justify-center rounded-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+</span>
+<span>Garlic Naan (2)</span>
+</div>
+<div class="flex items-center gap-2 text-body-md text-on-surface font-medium">
+<span class="w-3.5 h-3.5 border border-tertiary flex items-center justify-center rounded-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+</span>
+<span>Gulab Jamun Sizzler</span>
+</div>
+</div>
+<!-- Rating & Rewards Ribbon -->
+<div class="bg-surface-container-low p-2 rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary-container material-symbols-fill text-lg">hotel_class</span>
+<span class="font-label-md text-label-md font-bold text-on-surface">Rate &amp; Review Feast</span>
+</div>
+<span class="font-label-sm text-label-sm bg-secondary-fixed text-on-secondary-fixed font-bold px-2 py-0.5 rounded-full">
+            +20 Spice Pts
+          </span>
+</div>
+<!-- Quick Action Buttons -->
+<div class="grid grid-cols-2 gap-space-sm pt-space-xs">
+<button class="w-full py-2.5 px-space-sm rounded-full bg-primary text-on-primary font-label-lg text-label-lg font-bold flex items-center justify-center gap-1.5 shadow-sm active:scale-95 transition-all duration-150">
+<span class="material-symbols-outlined text-base">replay</span>
+            Re-order Feast
+          </button>
+<button class="w-full py-2.5 px-space-sm rounded-full bg-surface-container-lowest border border-outline text-on-surface font-label-lg text-label-lg font-semibold flex items-center justify-center gap-1.5 hover:bg-surface-container active:scale-95 transition-all duration-150">
+<span class="material-symbols-outlined text-base">receipt</span>
+            Download Invoice
+          </button>
+</div>
+</div>
+<!-- PAST ORDER CARD 2 -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 shadow-sm p-space-md space-y-space-md hover:shadow-md transition-shadow duration-200">
+<div class="flex items-start justify-between border-b border-outline-variant/20 pb-space-sm">
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Street Chaat Corner</h3>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed-variant text-label-sm font-label-sm font-bold px-2 py-0.5 rounded-full flex items-center gap-0.5">
+<span class="material-symbols-outlined text-xs">check_circle</span> Delivered
+              </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Order #PC-7954 • Oct 12</p>
+</div>
+<div class="text-right">
+<p class="font-headline-sm text-headline-sm font-extrabold text-on-surface">$19.40</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Apple Pay</p>
+</div>
+</div>
+<!-- Dishes List -->
+<div class="space-y-1.5">
+<div class="flex items-center gap-2 text-body-md text-on-surface font-medium">
+<span class="w-3.5 h-3.5 border border-tertiary flex items-center justify-center rounded-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+</span>
+<span>Pav Bhaji Fondue Platter</span>
+<span class="text-xs">🌶️🌶️</span>
+</div>
+<div class="flex items-center gap-2 text-body-md text-on-surface font-medium">
+<span class="w-3.5 h-3.5 border border-tertiary flex items-center justify-center rounded-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+</span>
+<span>Masala Chaas Flask</span>
+</div>
+</div>
+<!-- Quick Action Buttons -->
+<div class="grid grid-cols-2 gap-space-sm pt-space-xs">
+<button class="w-full py-2.5 px-space-sm rounded-full bg-primary text-on-primary font-label-lg text-label-lg font-bold flex items-center justify-center gap-1.5 shadow-sm active:scale-95 transition-all duration-150">
+<span class="material-symbols-outlined text-base">replay</span>
+            Re-order Feast
+          </button>
+<button class="w-full py-2.5 px-space-sm rounded-full bg-surface-container-lowest border border-outline text-on-surface font-label-lg text-label-lg font-semibold flex items-center justify-center gap-1.5 hover:bg-surface-container active:scale-95 transition-all duration-150">
+<span class="material-symbols-outlined text-base">fastfood</span>
+            Repeat Items
+          </button>
+</div>
+</div>
+</section>
+<!-- KITCHEN CARE & FESTIVE GUARANTEE FOOTER CARD -->
+<div class="bg-gradient-to-br from-secondary-fixed/40 to-surface-container p-space-md rounded-xl border border-secondary-container/30 flex items-start gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-white flex items-center justify-center shrink-0 shadow-sm mt-0.5">
+<span class="material-symbols-outlined text-xl">workspace_premium</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm font-bold text-on-secondary-fixed">Patel's Hot &amp; Crisp Guarantee</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-relaxed">
+          100% thermal foil sealed packaging ensures your biryani and snacks arrive steaming hot. Need support with an order?
+        </p>
+<div class="mt-space-sm flex items-center gap-space-md">
+<button class="font-label-md text-label-md font-extrabold text-primary flex items-center gap-1 hover:underline">
+<span class="material-symbols-outlined text-sm">support_agent</span>
+            24x7 Feast Helpline
+          </button>
+<button class="font-label-md text-label-md font-bold text-secondary flex items-center gap-1 hover:underline">
+<span class="material-symbols-outlined text-sm">policy</span>
+            Refund Policy
+          </button>
+</div>
+</div>
+</div>
+</main>
+<!-- BOTTOM NAVIGATION BAR (Shared Component Anchor) -->
+<!-- Active Tab: 'My Orders' (receipt_long) mapped according to destination intent -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-space-sm py-space-xs pb-safe bg-surface-container-lowest rounded-t-xl border-t border-secondary-container/20 shadow-lg">
+<!-- Tab 1: Feast (storefront) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant font-label-sm text-label-sm py-1 hover:text-primary transition-colors duration-150 active:scale-95">
+<span class="material-symbols-outlined text-2xl">storefront</span>
+<span class="mt-0.5">Feast</span>
+</button>
+<!-- Tab 2: Menu (lunch_dining) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant font-label-sm text-label-sm py-1 hover:text-primary transition-colors duration-150 active:scale-95">
+<span class="material-symbols-outlined text-2xl">lunch_dining</span>
+<span class="mt-0.5">Menu</span>
+</button>
+<!-- Tab 3: Book Table (event_seat) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant font-label-sm text-label-sm py-1 hover:text-primary transition-colors duration-150 active:scale-95">
+<span class="material-symbols-outlined text-2xl">event_seat</span>
+<span class="mt-0.5">Book Table</span>
+</button>
+<!-- Tab 4: My Orders (receipt_long) [ACTIVE DESTINATION] -->
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-3 py-1 font-label-sm text-label-sm shadow-sm active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined text-2xl material-symbols-fill">receipt_long</span>
+<span class="mt-0.5 font-bold">My Orders</span>
+</button>
+</nav>
+</body></html>

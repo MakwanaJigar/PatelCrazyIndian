@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Patel's Crazy Indian - Login</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary-fixed-variant": "#653e00",
+            "surface-container-lowest": "#ffffff",
+            "on-background": "#111c2d",
+            "on-tertiary-container": "#f7fff2",
+            "surface-container-highest": "#d8e3fb",
+            "on-primary": "#ffffff",
+            "surface-container-low": "#f0f3ff",
+            "on-secondary": "#ffffff",
+            "surface-variant": "#d8e3fb",
+            "secondary-fixed-dim": "#ffb95f",
+            "on-error-container": "#93000a",
+            "background": "#f9f9ff",
+            "on-surface-variant": "#5d3f3c",
+            "on-secondary-container": "#684000",
+            "on-secondary-fixed": "#2a1700",
+            "outline-variant": "#e6bdb8",
+            "on-tertiary-fixed": "#002109",
+            "secondary": "#855300",
+            "on-surface": "#111c2d",
+            "primary-fixed": "#ffdad5",
+            "secondary-fixed": "#ffddb8",
+            "on-tertiary-fixed-variant": "#005320",
+            "primary-container": "#e02924",
+            "on-primary-container": "#fffbff",
+            "inverse-on-surface": "#ecf1ff",
+            "secondary-container": "#fea619",
+            "tertiary-fixed": "#7ffc97",
+            "tertiary-container": "#00873a",
+            "primary-fixed-dim": "#ffb4aa",
+            "on-primary-fixed-variant": "#930007",
+            "error-container": "#ffdad6",
+            "on-primary-fixed": "#410001",
+            "inverse-primary": "#ffb4aa",
+            "inverse-surface": "#263143",
+            "surface-bright": "#f9f9ff",
+            "tertiary-fixed-dim": "#62df7d",
+            "on-error": "#ffffff",
+            "tertiary": "#006b2c",
+            "outline": "#916f6a",
+            "surface-container": "#e7eeff",
+            "surface-container-high": "#dee8ff",
+            "primary": "#bb010d",
+            "surface-dim": "#cfdaf2",
+            "error": "#ba1a1a",
+            "surface": "#f9f9ff",
+            "surface-tint": "#bf0610",
+            "on-tertiary": "#ffffff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "gutter": "1rem",
+            "space-lg": "1.5rem",
+            "space-sm": "0.5rem",
+            "margin": "1rem",
+            "space-xl": "2rem",
+            "space-md": "1rem"
+          },
+          "fontFamily": {
+            "label-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Epilogue"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "display-lg": ["Epilogue"],
+            "headline-sm": ["Epilogue"],
+            "headline-md": ["Epilogue"],
+            "headline-lg": ["Epilogue"],
+            "title-md": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Epilogue"]
+          },
+          "fontSize": {
+            "label-sm": ["10px", {"lineHeight": "14px", "fontWeight": "700"}],
+            "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+            "body-sm": ["12px", {"lineHeight": "18px", "fontWeight": "400"}],
+            "label-md": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+            "display-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "800"}],
+            "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+            "label-lg": ["14px", {"lineHeight": "20px", "fontWeight": "700"}],
+            "display-lg": ["36px", {"lineHeight": "44px", "fontWeight": "800"}],
+            "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+            "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+            "headline-lg": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+            "title-md": ["16px", {"lineHeight": "22px", "fontWeight": "700"}],
+            "headline-lg-mobile": ["22px", {"lineHeight": "30px", "fontWeight": "700"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Rangoli micro-border motif */
+    .rangoli-border {
+      background-image: radial-gradient(#fea619 1px, transparent 1px);
+      background-size: 8px 8px;
+    }
+    .festive-glow {
+      box-shadow: 0 10px 25px -5px rgba(224, 41, 36, 0.25), 0 8px 10px -6px rgba(224, 41, 36, 0.2);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex justify-center selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Mobile Viewport Shell (Max 430px for authentic touch layout) -->
+<div class="w-full max-w-[420px] min-h-screen flex flex-col bg-surface relative overflow-x-hidden pb-12">
+<!-- Top Decorative Rangoli Glow Strip -->
+<div class="h-1.5 w-full bg-gradient-to-r from-primary via-secondary-container to-primary"></div>
+<!-- Top Navigation Header (Login / Onboarding Task-Flow: Nav Shell Suppressed per Design System Hierarchy) -->
+<header class="w-full px-gutter py-space-md flex justify-between items-center z-10">
+<button aria-label="Go back" class="w-10 h-10 rounded-full bg-surface-container-lowest border border-outline-variant/40 flex items-center justify-center text-on-surface shadow-sm active:scale-95 transition-transform duration-150" type="button">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+</button>
+<!-- Subdued Brand Indicator -->
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-fixed/40 text-on-secondary-fixed">
+<span class="material-symbols-outlined text-[14px] text-secondary" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="font-label-sm text-label-sm tracking-wide">FESTIVE FLAVOURS</span>
+</div>
+<button aria-label="Customer Support" class="w-10 h-10 rounded-full bg-surface-container-lowest border border-outline-variant/40 flex items-center justify-center text-on-surface shadow-sm active:scale-95 transition-transform duration-150" type="button">
+<span class="material-symbols-outlined text-[20px]">help_outline</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-gutter flex flex-col justify-start">
+<!-- Brand Crest & Welcome Header -->
+<div class="flex flex-col items-center text-center mt-space-xs mb-space-md">
+<!-- Logo Emblem -->
+<div class="relative mb-3 group">
+<div class="absolute -inset-1 rounded-full bg-gradient-to-tr from-primary-container via-secondary-container to-primary-container opacity-40 blur-sm"></div>
+<div class="relative w-24 h-24 rounded-full bg-surface-container-lowest p-2 border-2 border-secondary-container/40 shadow-md flex items-center justify-center overflow-hidden">
+<img alt="Patel's Crazy Indian Logo" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjRfc1CWHzxFrH1b0THn5aXoPj8aHYkr--DzH08JuG0acoco_PLBmMyrBiAg2ugzSDKhQYsikj4kfkI_I_Lr7qbBpsaDV6uS2mFReYkIKU33PEVbZH1k-iunuIcLeE9o0LEMrRAgWhu1rwdb39RjKQLysh8NvKPoedfFz9sziONbrYjicyXog88jxAu0DW1gKLPxk2coeKfQ3lknwMHdw6B0wVQnFeig3gs81wglM6trSX3snKWWVhFnjI9LuMyB37gA"/>
+</div>
+<!-- Micro festive badge -->
+<div class="absolute -bottom-1 -right-1 bg-primary text-on-primary text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[10px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>CRAZY TASTE</span>
+</div>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface tracking-tight">
+          Welcome back to <span class="text-primary-container">Patel's!</span>
+</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">
+          Aromatic spices &amp; sizzling street delicacies await you.
+        </p>
+</div>
+<!-- Festive Spice Loyalty Incentive Card -->
+<div class="w-full mb-space-md bg-gradient-to-r from-secondary-fixed/50 via-surface-container-lowest to-secondary-fixed/30 border border-secondary-container/50 rounded-xl p-3 shadow-sm flex items-center gap-3 relative overflow-hidden">
+<div class="absolute -right-4 -bottom-4 w-16 h-16 rounded-full bg-secondary-container/10 pointer-events-none"></div>
+<div class="w-11 h-11 rounded-lg bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">celebration</span>
+</div>
+<div class="flex-1 min-w-0 text-left">
+<div class="flex items-center gap-1.5">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Feast Bonus</span>
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-primary font-bold">150 Spice Points</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface font-medium leading-tight mt-0.5">
+            Log in to claim points &amp; <span class="text-primary-container font-bold">Free Mango Kulfi</span> on your first order!
+          </p>
+</div>
+</div>
+<!-- Authentication Container Card -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 shadow-sm p-4 relative">
+<!-- Toggle Tabs: Phone OTP vs Email & Password -->
+<div class="w-full bg-surface-container-low p-1 rounded-lg flex items-center mb-space-md">
+<button class="flex-1 py-2 text-center rounded-md font-label-md text-label-md transition-all duration-150 bg-surface-container-lowest text-primary-container shadow-sm font-bold flex items-center justify-center gap-1.5" id="tab-phone" onclick="switchAuthTab('phone')" type="button">
+<span class="material-symbols-outlined text-[16px]">smartphone</span>
+<span>Phone OTP</span>
+<span class="text-[9px] bg-primary/10 text-primary px-1.5 py-0.2 rounded-full">Fast</span>
+</button>
+<button class="flex-1 py-2 text-center rounded-md font-label-md text-label-md transition-all duration-150 text-on-surface-variant hover:text-on-surface flex items-center justify-center gap-1.5" id="tab-email" onclick="switchAuthTab('email')" type="button">
+<span class="material-symbols-outlined text-[16px]">mail</span>
+<span>Email &amp; Password</span>
+</button>
+</div>
+<!-- Phone Login Section -->
+<form class="space-y-3.5" id="phone-form" onsubmit="event.preventDefault();">
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1.5 text-left">
+              Mobile Number <span class="text-primary-container">*</span>
+</label>
+<div class="flex items-center rounded-lg border border-outline-variant/60 focus-within:border-primary-container focus-within:ring-2 focus-within:ring-primary-container/20 transition-all bg-surface-container-lowest">
+<!-- Country selector pill -->
+<div class="flex items-center gap-1.5 pl-3 pr-2 py-2.5 border-r border-outline-variant/40 bg-surface-container-low/60 rounded-l-lg shrink-0">
+<span class="text-sm">🇮🇳</span>
+<span class="font-label-md text-label-md text-on-surface font-bold">+91</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">arrow_drop_down</span>
+</div>
+<input class="w-full bg-transparent px-3 py-2.5 font-body-lg text-body-lg text-on-surface placeholder:text-outline-variant focus:outline-none border-none focus:ring-0" maxlength="10" placeholder="98765 43210" type="tel"/>
+</div>
+<div class="flex items-center justify-between mt-1 px-1">
+<span class="font-body-sm text-body-sm text-on-surface-variant">We'll send a 4-digit feast code</span>
+<span class="font-label-sm text-label-sm text-tertiary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+                Verified SMS
+              </span>
+</div>
+</div>
+<!-- Primary Submit Button -->
+<button class="w-full bg-primary-container hover:bg-primary text-on-primary-container py-3.5 px-space-md rounded-full font-label-lg text-label-lg festive-glow active:scale-[0.98] transition-all duration-150 flex items-center justify-center gap-2 mt-2" type="submit">
+<span>Send OTP to Feasting</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</form>
+<!-- Email & Password Form (Hidden by default) -->
+<form class="space-y-3.5 hidden" id="email-form" onsubmit="event.preventDefault();">
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1.5 text-left">
+              Email Address <span class="text-primary-container">*</span>
+</label>
+<div class="flex items-center rounded-lg border border-outline-variant/60 focus-within:border-primary-container focus-within:ring-2 focus-within:ring-primary-container/20 transition-all bg-surface-container-lowest px-3 py-2.5">
+<span class="material-symbols-outlined text-outline-variant text-[20px] mr-2">alternate_email</span>
+<input class="w-full bg-transparent font-body-md text-body-md text-on-surface placeholder:text-outline-variant focus:outline-none border-none p-0 focus:ring-0" placeholder="hungry@crazyindian.com" type="email"/>
+</div>
+</div>
+<div>
+<div class="flex justify-between items-center mb-1.5">
+<label class="font-label-md text-label-md text-on-surface text-left">
+                Password <span class="text-primary-container">*</span>
+</label>
+<button class="font-label-md text-label-md text-primary-container hover:underline" type="button">
+                Forgot Password?
+              </button>
+</div>
+<div class="flex items-center rounded-lg border border-outline-variant/60 focus-within:border-primary-container focus-within:ring-2 focus-within:ring-primary-container/20 transition-all bg-surface-container-lowest px-3 py-2.5">
+<span class="material-symbols-outlined text-outline-variant text-[20px] mr-2">lock</span>
+<input class="w-full bg-transparent font-body-md text-body-md text-on-surface placeholder:text-outline-variant focus:outline-none border-none p-0 focus:ring-0" id="password-field" placeholder="••••••••" type="password"/>
+<button aria-label="Toggle password visibility" class="text-on-surface-variant hover:text-on-surface" onclick="togglePasswordVisibility()" type="button">
+<span class="material-symbols-outlined text-[20px]" id="eye-icon">visibility</span>
+</button>
+</div>
+</div>
+<!-- Log In Button -->
+<button class="w-full bg-primary-container hover:bg-primary text-on-primary-container py-3.5 px-space-md rounded-full font-label-lg text-label-lg festive-glow active:scale-[0.98] transition-all duration-150 flex items-center justify-center gap-2 mt-2" type="submit">
+<span>Log In to Feast</span>
+<span class="material-symbols-outlined text-[18px]">restaurant</span>
+</button>
+</form>
+<!-- Divider with Festive Rangoli Touch -->
+<div class="relative my-4 flex items-center justify-center">
+<div class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-outline-variant/40"></div>
+</div>
+<div class="relative px-3 bg-surface-container-lowest text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider flex items-center gap-1.5">
+<span class="text-secondary-container">✦</span>
+<span>or feasting with</span>
+<span class="text-secondary-container">✦</span>
+</div>
+</div>
+<!-- Social Sign-in Cluster -->
+<div class="grid grid-cols-2 gap-2.5">
+<!-- Google Button -->
+<button class="py-2.5 px-3 rounded-lg border border-outline-variant/50 hover:bg-surface-container-low transition-colors duration-150 flex items-center justify-center gap-2 bg-surface-container-lowest active:scale-95" type="button">
+<svg class="w-4 h-4 shrink-0" viewbox="0 0 24 24">
+<path d="M12 5c1.6 0 3 .6 4.1 1.7l3.1-3.1C17.3 1.8 14.8 1 12 1 7.4 1 3.5 3.6 1.6 7.4l3.7 2.9C6.2 7.1 8.9 5 12 5z" fill="#EA4335"></path>
+<path d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.6h6.5c-.3 1.5-1.1 2.8-2.4 3.7l3.7 2.9c2.2-2 3.7-5 3.7-8.9z" fill="#4285F4"></path>
+<path d="M5.3 14.7c-.2-.7-.4-1.5-.4-2.7s.1-2 .4-2.7L1.6 6.4C.6 8.4 0 10.6 0 12s.6 3.6 1.6 5.6l3.7-2.9z" fill="#FBBC05"></path>
+<path d="M12 23c3.2 0 6-1.1 8-3l-3.7-2.9c-1.1.7-2.5 1.2-4.3 1.2-3.1 0-5.8-2.1-6.7-5.3L1.6 16c1.9 3.8 5.8 7 10.4 7z" fill="#34A853"></path>
+</svg>
+<span class="font-label-md text-label-md text-on-surface">Google</span>
+</button>
+<!-- Apple Button -->
+<button class="py-2.5 px-3 rounded-lg border border-outline-variant/50 hover:bg-surface-container-low transition-colors duration-150 flex items-center justify-center gap-2 bg-surface-container-lowest active:scale-95" type="button">
+<svg class="w-4 h-4 shrink-0 fill-current text-on-surface" viewbox="0 0 170 170">
+<path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.69-3.04-7.6-7.85-11.75-14.44-6.3-9.98-11.09-20.91-14.36-32.79-3.27-11.88-4.9-23.01-4.9-33.4 0-14.35 3.65-26.06 10.95-35.14 7.3-9.08 16.32-13.78 27.05-14.1 4.58 0 9.87 1.25 15.86 3.75 5.99 2.5 9.94 3.75 11.85 3.75 1.52 0 5.67-1.32 12.44-3.95 6.77-2.63 12.63-3.72 17.58-3.27 13.48 1.09 23.95 6.07 31.42 14.93-11.96 7.28-17.83 17.17-17.61 29.67.22 9.78 3.91 18.04 11.08 24.78 7.17 6.74 15.66 10.76 25.47 12.06-2.17 6.52-4.89 13.04-8.15 19.56zM119.22 33.15c0-6.74 2.45-13.48 7.36-20.21 4.9-6.74 11.23-11.41 18.99-14.02-.98 4.24-2.83 8.64-5.55 13.2-2.72 4.56-6.19 8.37-10.42 11.41-3.48 2.5-7.17 4.56-11.08 6.19.22 1.19.43 2.39.7 3.43z"></path>
+</svg>
+<span class="font-label-md text-label-md text-on-surface">Apple</span>
+</button>
+</div>
+<!-- One-Tap Guest Access -->
+<button class="w-full mt-2.5 py-2.5 px-3 rounded-lg border border-dashed border-secondary-container/80 bg-secondary-fixed/20 hover:bg-secondary-fixed/40 transition-colors flex items-center justify-center gap-1.5 active:scale-98" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary">explore</span>
+<span class="font-label-md text-label-md text-secondary font-bold">Continue as Guest Explorer</span>
+</button>
+</div>
+<!-- Quick Trust Indicators -->
+<div class="mt-space-md grid grid-cols-3 gap-2 text-center">
+<div class="flex flex-col items-center">
+<div class="w-7 h-7 rounded-full bg-tertiary-container/10 text-tertiary flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-[16px]">bolt</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant leading-tight">Instant 30-Min Delivery</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-7 h-7 rounded-full bg-secondary-container/10 text-secondary flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-[16px]">set_meal</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant leading-tight">100% Halal &amp; Pure Veg</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-7 h-7 rounded-full bg-primary-container/10 text-primary-container flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-[16px]">loyalty</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant leading-tight">Earn Spice Cash</span>
+</div>
+</div>
+<!-- Footer Action & Sign-up Hook -->
+<div class="mt-space-lg text-center pb-6">
+<p class="font-body-md text-body-md text-on-surface-variant">
+          New to Patel's? 
+          <a class="font-label-lg text-label-lg text-primary-container hover:underline ml-1 inline-flex items-center gap-0.5" href="#">
+            Create an Account
+            <span class="material-symbols-outlined text-[16px]">arrow_outward</span>
+</a>
+</p>
+<p class="font-body-sm text-body-sm text-outline mt-3 px-4">
+          By continuing, you agree to our 
+          <a class="underline hover:text-on-surface" href="#">Terms of Feast</a> &amp; 
+          <a class="underline hover:text-on-surface" href="#">Spice Privacy Policy</a>.
+        </p>
+</div>
+</main>
+</div>
+<!-- Interactive State Switching Scripts -->
+<script>
+    function switchAuthTab(type) {
+      const phoneTab = document.getElementById('tab-phone');
+      const emailTab = document.getElementById('tab-email');
+      const phoneForm = document.getElementById('phone-form');
+      const emailForm = document.getElementById('email-form');
+
+      if (type === 'phone') {
+        phoneTab.className = "flex-1 py-2 text-center rounded-md font-label-md text-label-md transition-all duration-150 bg-surface-container-lowest text-primary-container shadow-sm font-bold flex items-center justify-center gap-1.5";
+        emailTab.className = "flex-1 py-2 text-center rounded-md font-label-md text-label-md transition-all duration-150 text-on-surface-variant hover:text-on-surface flex items-center justify-center gap-1.5";
+        phoneForm.classList.remove('hidden');
+        emailForm.classList.add('hidden');
+      } else {
+        emailTab.className = "flex-1 py-2 text-center rounded-md font-label-md text-label-md transition-all duration-150 bg-surface-container-lowest text-primary-container shadow-sm font-bold flex items-center justify-center gap-1.5";
+        phoneTab.className = "flex-1 py-2 text-center rounded-md font-label-md text-label-md transition-all duration-150 text-on-surface-variant hover:text-on-surface flex items-center justify-center gap-1.5";
+        emailForm.classList.remove('hidden');
+        phoneForm.classList.add('hidden');
+      }
+    }
+
+    function togglePasswordVisibility() {
+      const passwordField = document.getElementById('password-field');
+      const eyeIcon = document.getElementById('eye-icon');
+      if (passwordField.type === 'password') {
+        passwordField.type = 'text';
+        eyeIcon.textContent = 'visibility_off';
+      } else {
+        passwordField.type = 'password';
+        eyeIcon.textContent = 'visibility';
+      }
+    }
+  </script>
+</body></html>

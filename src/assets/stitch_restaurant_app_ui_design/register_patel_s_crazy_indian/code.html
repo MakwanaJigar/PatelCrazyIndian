@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Register - Patel's Crazy Indian</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Epilogue & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@600;700;800&amp;family=Plus Jakarta Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary-fixed-variant": "#653e00",
+            "surface-container-lowest": "#ffffff",
+            "on-background": "#111c2d",
+            "on-tertiary-container": "#f7fff2",
+            "surface-container-highest": "#d8e3fb",
+            "on-primary": "#ffffff",
+            "surface-container-low": "#f0f3ff",
+            "on-secondary": "#ffffff",
+            "surface-variant": "#d8e3fb",
+            "secondary-fixed-dim": "#ffb95f",
+            "on-error-container": "#93000a",
+            "background": "#f9f9ff",
+            "on-surface-variant": "#5d3f3c",
+            "on-secondary-container": "#684000",
+            "on-secondary-fixed": "#2a1700",
+            "outline-variant": "#e6bdb8",
+            "on-tertiary-fixed": "#002109",
+            "secondary": "#855300",
+            "on-surface": "#111c2d",
+            "primary-fixed": "#ffdad5",
+            "secondary-fixed": "#ffddb8",
+            "on-tertiary-fixed-variant": "#005320",
+            "primary-container": "#e02924",
+            "on-primary-container": "#fffbff",
+            "inverse-on-surface": "#ecf1ff",
+            "secondary-container": "#fea619",
+            "tertiary-fixed": "#7ffc97",
+            "tertiary-container": "#00873a",
+            "primary-fixed-dim": "#ffb4aa",
+            "on-primary-fixed-variant": "#930007",
+            "error-container": "#ffdad6",
+            "on-primary-fixed": "#410001",
+            "inverse-primary": "#ffb4aa",
+            "inverse-surface": "#263143",
+            "surface-bright": "#f9f9ff",
+            "tertiary-fixed-dim": "#62df7d",
+            "on-error": "#ffffff",
+            "tertiary": "#006b2c",
+            "outline": "#916f6a",
+            "surface-container": "#e7eeff",
+            "surface-container-high": "#dee8ff",
+            "primary": "#bb010d",
+            "surface-dim": "#cfdaf2",
+            "error": "#ba1a1a",
+            "surface": "#f9f9ff",
+            "surface-tint": "#bf0610",
+            "on-tertiary": "#ffffff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "gutter": "1rem",
+            "space-lg": "1.5rem",
+            "space-sm": "0.5rem",
+            "margin": "1rem",
+            "space-xl": "2rem",
+            "space-md": "1rem"
+          },
+          "fontFamily": {
+            "label-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Epilogue"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "display-lg": ["Epilogue"],
+            "headline-sm": ["Epilogue"],
+            "headline-md": ["Epilogue"],
+            "headline-lg": ["Epilogue"],
+            "title-md": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Epilogue"]
+          },
+          "fontSize": {
+            "label-sm": ["10px", { "lineHeight": "14px", "fontWeight": "700" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+            "display-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "800" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "700" }],
+            "display-lg": ["36px", { "lineHeight": "44px", "fontWeight": "800" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+            "title-md": ["16px", { "lineHeight": "22px", "fontWeight": "700" }],
+            "headline-lg-mobile": ["22px", { "lineHeight": "30px", "fontWeight": "700" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .rangoli-border {
+      background-image: radial-gradient(#fea619 1px, transparent 1px);
+      background-size: 8px 8px;
+    }
+    .custom-shadow {
+      box-shadow: 0 4px 14px rgba(229, 45, 39, 0.08), 0 1px 3px rgba(30, 41, 59, 0.04);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex justify-center selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Mobile Viewport Container (390px Max) -->
+<div class="w-full max-w-[420px] min-h-screen bg-surface-container-lowest flex flex-col relative shadow-xl overflow-x-hidden">
+<!-- Top Action Bar (Dedicated Linear Sign-up Flow: Back & Skip Navigation) -->
+<header class="w-full px-gutter py-space-sm flex items-center justify-between z-20 bg-surface-container-lowest/90 backdrop-blur-md sticky top-0">
+<button aria-label="Go Back" class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface hover:bg-surface-container-low transition-colors duration-150 active:scale-95" type="button">
+<span class="material-symbols-outlined text-[22px]">arrow_back</span>
+</button>
+<div class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-outline-variant"></span>
+</div>
+<button class="text-secondary font-label-md text-label-md px-3 py-1.5 rounded-full hover:bg-surface-container-low transition-colors active:scale-95 font-semibold" type="button">
+        Skip to Browse
+      </button>
+</header>
+<!-- Main Registration Canvas -->
+<main class="flex-1 px-gutter pt-space-xs pb-space-xl flex flex-col">
+<!-- Hero Identity & Welcome Banner -->
+<div class="relative overflow-hidden rounded-xl p-space-md mb-space-lg bg-surface-container-low border border-outline-variant/30 custom-shadow">
+<!-- Festive Rangoli subtle motif dotting in corner -->
+<div class="absolute -right-6 -bottom-6 w-24 h-24 rangoli-border rounded-full opacity-40 pointer-events-none"></div>
+<div class="flex items-start gap-space-md relative z-10">
+<!-- Logo Badge Avatar with Image Hook -->
+<div class="w-16 h-16 shrink-0 bg-surface-container-lowest rounded-full p-1 border-2 border-secondary-container/40 shadow-sm flex items-center justify-center overflow-hidden">
+<img alt="Patel's Crazy Indian Brand Logo" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBO0Jx8DyXzdOvhtMZullXFjo86APs-r5JDMkghke0aiWFJgwx9yXe_FvndmCysApoNxnAa4j6JXMWhWkPqXyhRw7y_grCe_kCl0ou3kf21YDX3FfsbSRwjfnd92wtgcumJUEU9djn6Y20O4OiJR07WEqV1W1yXQH_kAy2PFoOqMB3MHcIv3zpstZTK7UfDJ0LI4KUMrqgEppfSbwNG6anvewS8tBMH9THEl6vRT9hh5Cvxa2CFd_7uT8St4o4m8_dSIQ"/>
+</div>
+<div class="flex-1">
+<div class="inline-flex items-center gap-1 bg-secondary-container/20 text-on-secondary-container px-2 py-0.5 rounded-full text-label-sm font-label-sm mb-1.5 font-bold">
+<span class="material-symbols-outlined text-[13px] text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+              VIP CLUB
+            </div>
+<h1 class="text-headline-md font-headline-md text-on-surface leading-tight tracking-tight">
+              Join the Crazy Feast Club <span class="inline-block animate-bounce">🎉</span>
+</h1>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1 leading-snug">
+              Exclusive table perks, secret chaat recipes &amp; instant rewards on your cravings.
+            </p>
+</div>
+</div>
+<!-- Incentive Badge Callout -->
+<div class="mt-space-sm pt-space-xs border-t border-outline-variant/20 flex items-center justify-between">
+<div class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">redeem</span>
+<span class="font-label-sm text-label-sm font-bold tracking-wide">WELCOME BONUS</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">200 Spice Points unlocked today!</span>
+</div>
+</div>
+<!-- Registration Form -->
+<form class="space-y-space-md flex flex-col" onsubmit="event.preventDefault();">
+<!-- Input: Full Name -->
+<div class="space-y-1">
+<label class="block font-label-md text-label-md text-on-surface" for="fullname">
+            Full Name <span class="text-primary">*</span>
+</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-outline text-[20px] pointer-events-none">person</span>
+<input class="w-full bg-surface-container-lowest text-on-surface pl-10 pr-4 py-3 rounded-lg border border-outline-variant/60 focus:border-primary focus:ring-1 focus:ring-primary font-body-md text-body-md placeholder:text-outline-variant transition-all outline-none" id="fullname" name="fullname" placeholder="e.g. Aarav Patel" required="" type="text"/>
+</div>
+</div>
+<!-- Input: Mobile Number with Country Selector -->
+<div class="space-y-1">
+<div class="flex items-center justify-between">
+<label class="block font-label-md text-label-md text-on-surface" for="mobile">
+              Mobile Number <span class="text-primary">*</span>
+</label>
+<span class="text-[11px] font-label-sm text-tertiary flex items-center gap-0.5 font-bold">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+              OTP Verified
+            </span>
+</div>
+<div class="flex items-center gap-2">
+<!-- Country Code Dropdown -->
+<div class="relative w-28 shrink-0">
+<select class="w-full appearance-none bg-surface-container-lowest text-on-surface pl-3 pr-7 py-3 rounded-lg border border-outline-variant/60 focus:border-primary focus:ring-1 focus:ring-primary font-label-lg text-label-lg outline-none cursor-pointer">
+<option value="+1">🇺🇸 +1</option>
+<option selected="" value="+91">🇮🇳 +91</option>
+<option value="+44">🇬🇧 +44</option>
+<option value="+971">🇦🇪 +971</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-3.5 text-outline text-[18px] pointer-events-none">arrow_drop_down</span>
+</div>
+<!-- Phone Field -->
+<div class="relative flex-1">
+<input class="w-full bg-surface-container-lowest text-on-surface px-3 py-3 rounded-lg border border-outline-variant/60 focus:border-primary focus:ring-1 focus:ring-primary font-body-md text-body-md placeholder:text-outline-variant transition-all outline-none" id="mobile" name="mobile" placeholder="98765 43210" required="" type="tel"/>
+<span class="material-symbols-outlined absolute right-3 top-3 text-tertiary text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+</div>
+<!-- Input: Email Address -->
+<div class="space-y-1">
+<label class="block font-label-md text-label-md text-on-surface" for="email">
+            Email Address <span class="text-primary">*</span>
+</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-outline text-[20px] pointer-events-none">mail</span>
+<input class="w-full bg-surface-container-lowest text-on-surface pl-10 pr-4 py-3 rounded-lg border border-outline-variant/60 focus:border-primary focus:ring-1 focus:ring-primary font-body-md text-body-md placeholder:text-outline-variant transition-all outline-none" id="email" name="email" placeholder="aarav.feast@example.com" required="" type="email"/>
+</div>
+</div>
+<!-- Dietary Preference Selector (Indian Culinary Customization) -->
+<div class="space-y-2 pt-1">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[18px]">restaurant</span>
+              Dietary Preference
+            </label>
+<span class="text-body-sm font-body-sm text-on-surface-variant text-[11px]">(Curates your menu)</span>
+</div>
+<!-- Selectable Grid Cards -->
+<div class="grid grid-cols-2 gap-2" id="diet-selector">
+<!-- Pure Veg -->
+<label class="relative flex flex-col p-2.5 rounded-lg border-2 border-tertiary bg-tertiary-container/10 cursor-pointer transition-all duration-150 select-none">
+<input checked="" class="sr-only" name="dietary" type="radio" value="pure_veg"/>
+<div class="flex items-center justify-between">
+<span class="w-4 h-4 border border-tertiary p-0.5 flex items-center justify-center rounded-[2px] bg-white">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+</span>
+<span class="material-symbols-outlined text-tertiary text-[18px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface font-bold mt-1.5">Pure Veg</span>
+<span class="text-[10px] text-on-surface-variant font-body-sm leading-tight">100% Vegetarian treats</span>
+</label>
+<!-- Swaminarayan -->
+<label class="relative flex flex-col p-2.5 rounded-lg border border-outline-variant/60 bg-surface-container-lowest hover:border-secondary transition-all duration-150 cursor-pointer select-none">
+<input class="sr-only" name="dietary" type="radio" value="swaminarayan"/>
+<div class="flex items-center justify-between">
+<span class="text-sm">🧅🚫</span>
+<span class="w-3.5 h-3.5 rounded-full border border-outline-variant"></span>
+</div>
+<span class="font-label-md text-label-md text-on-surface font-semibold mt-1.5">Swaminarayan</span>
+<span class="text-[10px] text-on-surface-variant font-body-sm leading-tight">No Onion, No Garlic</span>
+</label>
+<!-- Jain Friendly -->
+<label class="relative flex flex-col p-2.5 rounded-lg border border-outline-variant/60 bg-surface-container-lowest hover:border-secondary transition-all duration-150 cursor-pointer select-none">
+<input class="sr-only" name="dietary" type="radio" value="jain"/>
+<div class="flex items-center justify-between">
+<span class="text-sm">🌿</span>
+<span class="w-3.5 h-3.5 rounded-full border border-outline-variant"></span>
+</div>
+<span class="font-label-md text-label-md text-on-surface font-semibold mt-1.5">Jain Friendly</span>
+<span class="text-[10px] text-on-surface-variant font-body-sm leading-tight">Zero Root Vegetables</span>
+</label>
+<!-- All / Fusion -->
+<label class="relative flex flex-col p-2.5 rounded-lg border border-outline-variant/60 bg-surface-container-lowest hover:border-secondary transition-all duration-150 cursor-pointer select-none">
+<input class="sr-only" name="dietary" type="radio" value="all"/>
+<div class="flex items-center justify-between">
+<span class="text-sm">🍗🥘</span>
+<span class="w-3.5 h-3.5 rounded-full border border-outline-variant"></span>
+</div>
+<span class="font-label-md text-label-md text-on-surface font-semibold mt-1.5">All (Veg &amp; Tandoori)</span>
+<span class="text-[10px] text-on-surface-variant font-body-sm leading-tight">Complete Festive Feast</span>
+</label>
+</div>
+</div>
+<!-- Input: Birthday (Optional with Delight Offer) -->
+<div class="space-y-1 pt-1">
+<div class="flex items-center justify-between">
+<label class="block font-label-md text-label-md text-on-surface" for="birthday">
+              Date of Birth <span class="text-outline text-[11px] font-normal">(Optional)</span>
+</label>
+</div>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-secondary-container text-[20px] pointer-events-none" style="font-variation-settings: 'FILL' 1;">cake</span>
+<input class="w-full bg-surface-container-lowest text-on-surface pl-10 pr-4 py-2.5 rounded-lg border border-outline-variant/60 focus:border-secondary focus:ring-1 focus:ring-secondary font-body-md text-body-md transition-all outline-none" id="birthday" name="birthday" type="date"/>
+</div>
+<p class="text-[11px] font-body-sm text-secondary flex items-center gap-1 mt-1 font-semibold">
+<span class="material-symbols-outlined text-[14px]">celebration</span>
+            Get a complimentary Gulab Jamun sizzler on your birthday!
+          </p>
+</div>
+<!-- Checkbox: Terms & WhatsApp Updates -->
+<div class="pt-2">
+<label class="flex items-start gap-2.5 cursor-pointer">
+<input checked="" class="mt-1 rounded text-primary focus:ring-primary border-outline-variant/80 w-4 h-4 cursor-pointer" required="" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface-variant leading-snug">
+              I agree to Patel's <a class="text-primary underline font-medium" href="#">Terms of Service</a> &amp; <a class="text-primary underline font-medium" href="#">Privacy Policy</a>, plus festive updates via WhatsApp 💬.
+            </span>
+</label>
+</div>
+<!-- Main CTA Button -->
+<div class="pt-3">
+<button class="w-full bg-primary-container text-on-primary-container hover:bg-primary font-label-lg text-label-lg py-3.5 px-6 rounded-full shadow-lg shadow-primary-container/20 flex items-center justify-center gap-2 active:scale-95 transition-all duration-150 font-bold tracking-wide" type="submit">
+<span>Create Account &amp; Get 200 Pts 🎁</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</form>
+<!-- Bottom Alternative Login Footer -->
+<footer class="mt-space-lg text-center pt-space-sm border-t border-outline-variant/20">
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Already a foodie member? 
+          <a class="text-primary font-bold hover:underline ml-1" href="#">Log In</a>
+</p>
+</footer>
+</main>
+</div>
+<!-- Interactive script for radio toggle visual state -->
+<script>
+    document.querySelectorAll('#diet-selector label').forEach(label => {
+      label.addEventListener('click', function() {
+        document.querySelectorAll('#diet-selector label').forEach(l => {
+          l.classList.remove('border-2', 'border-tertiary', 'bg-tertiary-container/10');
+          l.classList.add('border', 'border-outline-variant/60', 'bg-surface-container-lowest');
+          const icon = l.querySelector('.material-symbols-outlined');
+          if (icon) {
+            icon.parentElement.innerHTML = '<span class="w-3.5 h-3.5 rounded-full border border-outline-variant"></span>';
+          }
+        });
+        this.classList.remove('border-outline-variant/60', 'bg-surface-container-lowest');
+        this.classList.add('border-2', 'border-tertiary', 'bg-tertiary-container/10');
+        const indicator = this.querySelector('.w-3.5') || this.querySelector('span:last-child');
+        if (indicator && indicator.classList.contains('border')) {
+          indicator.outerHTML = '<span class="material-symbols-outlined text-tertiary text-[18px]" style="font-variation-settings: \'FILL\' 1;">check_circle</span>';
+        }
+      });
+    });
+  </script>
+</body></html>

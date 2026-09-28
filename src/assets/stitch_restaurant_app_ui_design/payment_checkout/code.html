@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Checkout &amp; Payment - Patel's Crazy Indian</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with configuration -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "error-container": "#ffdad6",
+            "background": "#f9f9ff",
+            "on-surface": "#111c2d",
+            "on-primary": "#ffffff",
+            "on-tertiary-fixed": "#002109",
+            "inverse-primary": "#ffb4aa",
+            "surface-container-highest": "#d8e3fb",
+            "secondary-fixed": "#ffddb8",
+            "on-tertiary-fixed-variant": "#005320",
+            "primary-fixed": "#ffdad5",
+            "error": "#ba1a1a",
+            "tertiary-fixed": "#7ffc97",
+            "surface-tint": "#bf0610",
+            "inverse-surface": "#263143",
+            "on-background": "#111c2d",
+            "on-surface-variant": "#5d3f3c",
+            "primary-fixed-dim": "#ffb4aa",
+            "on-secondary-fixed-variant": "#653e00",
+            "tertiary-container": "#00873a",
+            "on-secondary-container": "#684000",
+            "surface-variant": "#d8e3fb",
+            "on-error-container": "#93000a",
+            "outline-variant": "#e6bdb8",
+            "on-tertiary-container": "#f7fff2",
+            "secondary-fixed-dim": "#ffb95f",
+            "inverse-on-surface": "#ecf1ff",
+            "surface-bright": "#f9f9ff",
+            "surface-container": "#e7eeff",
+            "on-primary-container": "#fffbff",
+            "on-tertiary": "#ffffff",
+            "outline": "#916f6a",
+            "tertiary-fixed-dim": "#62df7d",
+            "surface-container-lowest": "#ffffff",
+            "secondary": "#855300",
+            "on-primary-fixed": "#410001",
+            "secondary-container": "#fea619",
+            "primary": "#bb010d",
+            "surface-dim": "#cfdaf2",
+            "surface-container-high": "#dee8ff",
+            "on-secondary-fixed": "#2a1700",
+            "surface": "#f9f9ff",
+            "tertiary": "#006b2c",
+            "on-secondary": "#ffffff",
+            "surface-container-low": "#f0f3ff",
+            "on-error": "#ffffff",
+            "on-primary-fixed-variant": "#930007",
+            "primary-container": "#e02924"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin": "1rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2rem",
+            "gutter": "1rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Epilogue"],
+            "display-lg": ["Epilogue"],
+            "display-lg-mobile": ["Epilogue"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Epilogue"],
+            "title-md": ["Plus Jakarta Sans"],
+            "headline-md": ["Epilogue"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Epilogue"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "700" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "display-lg": ["36px", { "lineHeight": "44px", "fontWeight": "800" }],
+            "display-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "800" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "label-sm": ["10px", { "lineHeight": "14px", "fontWeight": "700" }],
+            "headline-lg-mobile": ["22px", { "lineHeight": "30px", "fontWeight": "700" }],
+            "title-md": ["16px", { "lineHeight": "22px", "fontWeight": "700" }],
+            "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+            "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-background text-on-surface antialiased font-body-md text-body-md min-h-screen pb-28 selection:bg-primary selection:text-on-primary">
+<!-- Top App Bar (Task-focused screen: Back navigation & high security context) -->
+<header class="sticky top-0 left-0 w-full z-40 bg-surface-container-lowest/95 backdrop-blur-md shadow-sm">
+<div class="max-w-md mx-auto px-gutter h-14 flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<button aria-label="Back to Cart" class="p-2 rounded-full text-on-surface hover:bg-surface-container transition-colors duration-150 active:scale-95" type="button">
+<span class="material-symbols-outlined text-[22px]">arrow_back</span>
+</button>
+<div>
+<h1 class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none">Checkout &amp; Payment</h1>
+<p class="font-label-sm text-label-sm text-primary font-bold">Patel's Crazy Indian</p>
+</div>
+</div>
+<div class="flex items-center space-x-1 bg-surface-container-low px-2.5 py-1 rounded-full border border-outline-variant/30 shadow-sm">
+<span class="material-symbols-outlined text-tertiary text-[14px]" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="font-label-sm text-label-sm text-tertiary font-bold">100% Safe</span>
+</div>
+</div>
+</header>
+<main class="max-w-md mx-auto px-gutter pt-3 space-y-4">
+<!-- Fulfillment Mode Selector Segmented Tabs -->
+<section class="bg-surface-container-low p-1 rounded-full flex border border-outline-variant/40 shadow-sm">
+<button class="flex-1 py-2 px-3 rounded-full bg-primary text-on-primary font-label-md text-label-md flex items-center justify-center space-x-1.5 shadow-sm active:scale-98 transition-transform" type="button">
+<span class="material-symbols-outlined text-[16px]">bolt</span>
+<span>25-Min Hot Delivery</span>
+</button>
+<button class="flex-1 py-2 px-3 rounded-full text-on-surface-variant font-label-md text-label-md flex items-center justify-center space-x-1.5 hover:text-on-surface active:scale-98 transition-transform" type="button">
+<span class="material-symbols-outlined text-[16px]">takeout_dining</span>
+<span>🥡 Takeaway Pick-up</span>
+</button>
+</section>
+<!-- Delivery Address & Estimated Arrival Card -->
+<section class="bg-surface-container-lowest p-space-md rounded-xl border border-outline-variant/30 shadow-sm space-y-3">
+<div class="flex items-start justify-between">
+<div class="flex items-start space-x-2.5">
+<div class="w-9 h-9 rounded-full bg-primary-fixed flex items-center justify-center text-primary mt-0.5 shrink-0">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">home_pin</span>
+</div>
+<div>
+<div class="flex items-center space-x-2">
+<h2 class="font-title-md text-title-md text-on-surface">Home - Rahul Patel</h2>
+<span class="bg-secondary-container/20 text-secondary px-2 py-0.5 rounded-full font-label-sm text-label-sm">Primary</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 leading-snug">
+              Flat 402, Royal Palms Residency, Downtown Plaza
+            </p>
+</div>
+</div>
+<button class="font-label-md text-label-md text-primary font-bold hover:underline shrink-0 pt-0.5" type="button">
+          Change
+        </button>
+</div>
+<!-- Instructions Pill -->
+<div class="flex items-center justify-between bg-surface-container-low px-3 py-2 rounded-lg border border-outline-variant/30">
+<div class="flex items-center space-x-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">doorbell</span>
+<span class="font-body-sm text-body-sm italic">"Leave at door &amp; ring bell"</span>
+</div>
+<button class="text-primary hover:text-primary-container" type="button">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+</button>
+</div>
+<!-- Fast delivery promise timer banner -->
+<div class="flex items-center space-x-2 text-on-secondary-container bg-secondary-fixed/50 px-3 py-2 rounded-lg">
+<span class="material-symbols-outlined text-[18px] text-secondary">moped</span>
+<div class="flex-1">
+<p class="font-label-md text-label-md text-on-secondary-container font-bold">Express Delivery: Arriving in 22-28 mins</p>
+<p class="font-body-sm text-body-sm text-on-secondary-container/80">Fresh piping hot from Bay Area Bistro kitchen</p>
+</div>
+</div>
+</section>
+<!-- Order Items Sneak Peek Accordion -->
+<section class="bg-surface-container-lowest p-space-md rounded-xl border border-outline-variant/30 shadow-sm">
+<div class="flex items-center justify-between cursor-pointer">
+<div class="flex items-center space-x-3">
+<!-- Thumbnail cluster -->
+<div class="flex -space-x-2 overflow-hidden py-1">
+<div class="inline-block h-8 w-8 rounded-full ring-2 ring-surface-container-lowest overflow-hidden bg-surface-container">
+<img class="h-full w-full object-cover" data-alt="Close up photography of vibrant Delhi butter chicken rich with aromatic red gravy and cream swirl in a rustic bronze bowl, festive mood, high quality studio lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeJ0NQTM9iR64AuwL_oUnSBuEU0ydKXT-b-P8Fr7BYh8ok0dRcxogxXbJFwqWdgg4z3hrBR-_eZGoRMLdvzBnEMRmtww_fSPVPCUOklM7kXtRt4gmGJgr6GZiJwjBXMeROPKIF2CklqUNjOnBdVmpdgNBn5PdiIh-QQca2YKeqCs5H04O07o3JRbIDt0VPqbb8D8Yq9fVsmxpchJN7isegsqd4013zDSJiEqaWIh6KQ4w-vNWOuFDr"/>
+</div>
+<div class="inline-block h-8 w-8 rounded-full ring-2 ring-surface-container-lowest overflow-hidden bg-surface-container">
+<img class="h-full w-full object-cover" data-alt="Golden crisp savory samosas served with tangy emerald green mint chutney and sweet brown tamarind dip on a festive ceramic platter." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1GkOK3cdg5AIuVb6MvfAkC8tOwsfw0RcZiW4_b4WvNqlonOwWu1Z0BpXhK0v3De-TH0xoywDPdO5ac5PaAGrnW9ZtHUkJwW71QcFCJs--KHQPMUCyOsbv_z0lK1bguamL4Mo0WIohPOcG7B6UTxs4gBosbIkzYho45nj2bEV6wZQW-RcYZCjnJPxo-gcmi-1a19zI9nNB_W4RJ455bDQ-mC-BHoArzNv4r91SDfmJ1XIwyhpRSlJx"/>
+</div>
+<div class="inline-block h-8 w-8 rounded-full ring-2 ring-surface-container-lowest overflow-hidden bg-surface-container">
+<img class="h-full w-full object-cover" data-alt="Traditional garlic butter naan bread fresh from the tandoor oven, garnished with toasted garlic bits and fresh coriander leaves." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4gW0fLaKzut5jNmllBu5inzjA_1rmS8P8OHRNogXvuE8jZ9_UhfS3yjDwLPItpiFWqCqwkKHPSEIZ3V73Ysa4343IQsa9UyfLsN8CPzMtxVEDku242SDRH7X7m1GkhZnKpudNi8N5zSHFg_WheMZdv1ERfRw8U2P38wsK-Y9RjPLSnw2Q9dLeIBYp0lQawqOrlCPR5uYEs5RI-ah72lCNUxWdjVb9QnBz5qu6ROOOfYvxR1-g8LjU"/>
+</div>
+</div>
+<div>
+<h3 class="font-label-lg text-label-lg text-on-surface">3 Items in Feast</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Bay Area Bistro • $28.62</p>
+</div>
+</div>
+<button class="flex items-center space-x-1 text-primary font-label-md text-label-md font-bold" type="button">
+<span>View</span>
+<span class="material-symbols-outlined text-[18px]">expand_more</span>
+</button>
+</div>
+</section>
+<!-- Festive Tip for Delivery Hero -->
+<section class="bg-surface-container-lowest p-space-md rounded-xl border border-outline-variant/30 shadow-sm space-y-2.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">two_wheeler</span>
+<h2 class="font-title-md text-title-md text-on-surface">Support Patel's Delivery Partner</h2>
+</div>
+<span class="font-label-sm text-label-sm bg-tertiary-fixed text-on-tertiary-fixed px-2 py-0.5 rounded-full font-bold">100% to Rider</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Celebrate the festive spirit with a kind gesture for our hard-working delivery heroes.</p>
+<!-- Tip Options Grid -->
+<div class="grid grid-cols-4 gap-2 pt-1">
+<button class="py-2 rounded-lg border border-outline-variant text-center font-label-md text-label-md text-on-surface hover:bg-surface-container-low transition-all" type="button">
+          $2
+        </button>
+<button class="py-2 rounded-lg bg-secondary-container/20 border-2 border-secondary-container text-center font-label-md text-label-md text-secondary font-bold relative shadow-xs" type="button">
+          $3
+          <span class="absolute -top-2 left-1/2 -translate-x-1/2 bg-secondary text-on-secondary font-label-sm text-[9px] px-1.5 py-0.2 rounded-full whitespace-nowrap">
+            Popular 🌟
+          </span>
+</button>
+<button class="py-2 rounded-lg border border-outline-variant text-center font-label-md text-label-md text-on-surface hover:bg-surface-container-low transition-all" type="button">
+          $5
+        </button>
+<button class="py-2 rounded-lg border border-dashed border-outline text-center font-label-md text-label-md text-on-surface hover:bg-surface-container-low transition-all" type="button">
+          Custom
+        </button>
+</div>
+</section>
+<!-- Patel's Loyalty & Spice Club Card -->
+<section class="bg-gradient-to-br from-surface-container-lowest via-surface-container-low to-surface-container-lowest p-space-md rounded-xl border border-secondary-container/40 shadow-sm relative overflow-hidden">
+<div class="absolute -right-4 -top-4 w-20 h-20 rounded-full bg-secondary-container/10 pointer-events-none"></div>
+<div class="flex items-start justify-between mb-2">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-primary text-[22px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<div>
+<h2 class="font-title-md text-title-md text-on-surface">Patel's Spice Club</h2>
+<p class="font-label-sm text-label-sm text-secondary font-bold">Balance: 420 Spice Points</p>
+</div>
+</div>
+<span class="bg-primary/10 text-primary px-2 py-0.5 rounded-full font-label-sm text-label-sm font-bold">Reward Tier</span>
+</div>
+<label class="mt-2 flex items-center justify-between bg-surface-container-lowest p-2.5 rounded-lg border border-outline-variant/30 cursor-pointer hover:border-primary/50 transition-colors">
+<div class="flex items-center space-x-2.5">
+<input checked="" class="w-4 h-4 rounded text-primary focus:ring-primary border-outline" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Redeem 200 Spice Points to save <strong>$2.00</strong></span>
+</div>
+<span class="text-tertiary font-label-sm text-label-sm font-bold bg-tertiary-fixed/30 px-1.5 py-0.5 rounded">-$2.00</span>
+</label>
+</section>
+<!-- Payment Methods Section -->
+<section class="space-y-3">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Select Payment Method</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">lock</span>
+          256-bit SSL
+        </span>
+</div>
+<!-- Instant UPI / Recommended Option -->
+<div class="bg-surface-container-lowest rounded-xl border-2 border-primary p-space-md shadow-sm space-y-3 relative">
+<div class="absolute top-0 right-4 -translate-y-1/2 bg-primary text-on-primary font-label-sm text-label-sm px-2.5 py-0.5 rounded-full uppercase tracking-wider font-extrabold shadow-sm">
+          Recommended
+        </div>
+<div class="flex items-start space-x-3">
+<input checked="" class="mt-1 w-4 h-4 text-primary focus:ring-primary border-outline" id="pay_upi" name="payment_method" type="radio"/>
+<div class="flex-1">
+<label class="block font-title-md text-title-md text-on-surface cursor-pointer" for="pay_upi">
+              UPI &amp; Instant Pay
+            </label>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Pay via Google Pay, PhonePe, Paytm, or BHIM</p>
+<div class="flex items-center space-x-2 mt-2">
+<span class="px-2 py-1 bg-surface-container-low rounded font-label-sm text-label-sm font-bold text-on-surface border border-outline-variant/30">GPay</span>
+<span class="px-2 py-1 bg-surface-container-low rounded font-label-sm text-label-sm font-bold text-on-surface border border-outline-variant/30">PhonePe</span>
+<span class="px-2 py-1 bg-surface-container-low rounded font-label-sm text-label-sm font-bold text-on-surface border border-outline-variant/30">Paytm</span>
+<span class="px-2 py-1 bg-surface-container-low rounded font-label-sm text-label-sm font-bold text-on-surface border border-outline-variant/30">+UPI ID</span>
+</div>
+<!-- Fast UPI ID entry field -->
+<div class="mt-3 flex items-center space-x-2">
+<div class="relative flex-1">
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-lg px-3 py-2 text-on-surface font-body-sm text-body-sm focus:border-primary focus:ring-1 focus:ring-primary" placeholder="Enter UPI ID (e.g. mobile@upi)" type="text" value="rahulpatel@oksbi"/>
+<span class="absolute right-2.5 top-2.5 text-tertiary material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<button class="bg-primary text-on-primary px-3 py-2 rounded-lg font-label-md text-label-md active:scale-95 transition-transform font-bold" type="button">
+                Verify
+              </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Credit / Debit Cards Card -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 p-space-md shadow-sm space-y-3">
+<div class="flex items-start space-x-3">
+<input class="mt-1 w-4 h-4 text-primary focus:ring-primary border-outline" id="pay_card" name="payment_method" type="radio"/>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<label class="block font-title-md text-title-md text-on-surface cursor-pointer" for="pay_card">
+                Credit &amp; Debit Cards
+              </label>
+<div class="flex space-x-1">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">credit_card</span>
+</div>
+</div>
+<!-- Saved Card Mini Row -->
+<div class="mt-2.5 flex items-center justify-between p-2.5 rounded-lg bg-surface-container-low border border-outline-variant/40">
+<div class="flex items-center space-x-2.5">
+<span class="font-label-sm text-label-sm font-bold bg-surface-container-highest px-1.5 py-0.5 rounded text-on-surface">VISA</span>
+<div>
+<p class="font-label-md text-label-md text-on-surface font-semibold">HDFC Regalia •••• 4821</p>
+<p class="font-body-sm text-[11px] text-on-surface-variant">Expires 08/27</p>
+</div>
+</div>
+<input class="w-14 text-center bg-surface-container-lowest border border-outline-variant rounded p-1 font-body-sm text-body-sm" maxlength="3" placeholder="CVV" type="password"/>
+</div>
+<!-- Add new card trigger -->
+<button class="mt-2.5 flex items-center space-x-1.5 text-primary font-label-md text-label-md font-bold hover:underline" type="button">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span>Add New Card</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Digital Wallets & One-Tap Pay -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 p-space-md shadow-sm">
+<div class="flex items-start space-x-3">
+<input class="mt-1 w-4 h-4 text-primary focus:ring-primary border-outline" id="pay_wallet" name="payment_method" type="radio"/>
+<div class="flex-1">
+<label class="block font-title-md text-title-md text-on-surface cursor-pointer" for="pay_wallet">
+              Apple Pay / Google Wallet
+            </label>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Instant one-touch biometric authorization</p>
+</div>
+<span class="material-symbols-outlined text-on-surface text-[22px]">contactless</span>
+</div>
+</div>
+<!-- Pay on Arrival (Cash / QR) -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 p-space-md shadow-sm">
+<div class="flex items-start space-x-3">
+<input class="mt-1 w-4 h-4 text-primary focus:ring-primary border-outline" id="pay_cod" name="payment_method" type="radio"/>
+<div class="flex-1">
+<label class="block font-title-md text-title-md text-on-surface cursor-pointer" for="pay_cod">
+              Pay on Delivery (Cash or QR)
+            </label>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Scan QR code or pay cash directly to rider on arrival</p>
+</div>
+<span class="material-symbols-outlined text-secondary text-[22px]">payments</span>
+</div>
+</div>
+</section>
+<!-- Price Breakdown Card -->
+<section class="bg-surface-container-lowest p-space-md rounded-xl border border-outline-variant/30 shadow-sm space-y-2.5">
+<h2 class="font-title-md text-title-md text-on-surface pb-1 border-b border-outline-variant/20">Bill Summary</h2>
+<div class="flex justify-between font-body-sm text-body-sm text-on-surface-variant">
+<span>Item Total (3 items)</span>
+<span class="text-on-surface font-medium">$24.50</span>
+</div>
+<div class="flex justify-between font-body-sm text-body-sm text-on-surface-variant">
+<span>Delivery Fee (Express 25-min)</span>
+<span class="text-on-surface font-medium">$1.99</span>
+</div>
+<div class="flex justify-between font-body-sm text-body-sm text-on-surface-variant">
+<span>Rider Support Tip</span>
+<span class="text-on-surface font-medium">$2.00</span>
+</div>
+<div class="flex justify-between font-body-sm text-body-sm text-on-surface-variant">
+<span>Taxes &amp; Restaurant Packaging</span>
+<span class="text-on-surface font-medium">$2.13</span>
+</div>
+<div class="flex justify-between font-body-sm text-body-sm text-tertiary">
+<span>Spice Points Redeemed (200 Pts)</span>
+<span class="font-bold">-$2.00</span>
+</div>
+<div class="pt-2 border-t border-dashed border-outline-variant/40 flex justify-between items-baseline">
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">To Pay</span>
+<span class="font-label-sm text-label-sm text-tertiary ml-2 bg-tertiary-fixed/40 px-1.5 py-0.5 rounded font-bold">You saved $2.00</span>
+</div>
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-headline-lg text-primary font-bold">$26.62</span>
+</div>
+</section>
+<!-- Patel's Festive Food Guarantee Banner -->
+<section class="bg-surface-container-low p-3 rounded-xl border border-secondary-container/30 flex items-center space-x-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container shrink-0 font-bold">
+<span class="material-symbols-outlined text-[22px]">workspace_premium</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface font-bold">Patel's Festive Quality Guarantee</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Tamper-proof fresh seal packaging guaranteed hot, or 100% money back.</p>
+</div>
+</section>
+<!-- Festive Decorative Spacer -->
+<div class="flex items-center justify-center space-x-2 py-2 text-outline-variant/60">
+<span class="h-px bg-outline-variant/40 w-12"></span>
+<span class="font-label-sm text-label-sm tracking-widest text-outline uppercase font-semibold">The Festive Treat</span>
+<span class="h-px bg-outline-variant/40 w-12"></span>
+</div>
+</main>
+<!-- Sticky Bottom High-Converting Action Bar -->
+<footer class="fixed bottom-0 left-0 w-full z-50 bg-surface-container-lowest/98 backdrop-blur-md shadow-lg border-t border-outline-variant/30 py-3 px-gutter">
+<div class="max-w-md mx-auto flex items-center justify-between space-x-3">
+<!-- Price & Detailed Breakdown Link -->
+<div>
+<div class="flex items-baseline space-x-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Total:</span>
+<span class="font-headline-md text-headline-md text-primary font-extrabold tracking-tight">$26.62</span>
+</div>
+<button class="font-label-sm text-label-sm text-secondary font-bold flex items-center hover:underline" type="button">
+<span>View Detailed Bill</span>
+<span class="material-symbols-outlined text-[13px]">chevron_right</span>
+</button>
+</div>
+<!-- High-Energy Primary Checkout Button -->
+<button class="flex-1 py-3.5 px-4 rounded-full bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg flex items-center justify-center space-x-2 shadow-md hover:shadow-lg active:scale-95 transition-all duration-150" type="button">
+<span class="material-symbols-outlined text-[18px]">lock</span>
+<span>Pay $26.62 &amp; Place Feast</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</footer>
+</body></html>

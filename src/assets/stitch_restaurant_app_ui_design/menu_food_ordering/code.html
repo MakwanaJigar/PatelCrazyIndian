@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Patel's Crazy Indian - Interactive Feast Menu</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@500;600;700;800;900&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary": "#006b2c",
+            "on-background": "#111c2d",
+            "surface-bright": "#f9f9ff",
+            "on-primary": "#ffffff",
+            "on-tertiary-fixed-variant": "#005320",
+            "secondary": "#855300",
+            "surface-container-low": "#f0f3ff",
+            "primary-container": "#e02924",
+            "inverse-on-surface": "#ecf1ff",
+            "on-secondary-fixed": "#2a1700",
+            "surface-variant": "#d8e3fb",
+            "surface-tint": "#bf0610",
+            "on-primary-fixed": "#410001",
+            "tertiary-fixed": "#7ffc97",
+            "on-surface": "#111c2d",
+            "inverse-primary": "#ffb4aa",
+            "on-primary-container": "#fffbff",
+            "surface-container": "#e7eeff",
+            "tertiary-container": "#00873a",
+            "on-surface-variant": "#5d3f3c",
+            "primary": "#bb010d",
+            "on-primary-fixed-variant": "#930007",
+            "primary-fixed-dim": "#ffb4aa",
+            "outline-variant": "#e6bdb8",
+            "error-container": "#ffdad6",
+            "outline": "#916f6a",
+            "on-tertiary-container": "#f7fff2",
+            "surface": "#f9f9ff",
+            "surface-container-high": "#dee8ff",
+            "surface-container-lowest": "#ffffff",
+            "background": "#f9f9ff",
+            "inverse-surface": "#263143",
+            "error": "#ba1a1a",
+            "on-secondary-container": "#684000",
+            "secondary-fixed-dim": "#ffb95f",
+            "on-secondary": "#ffffff",
+            "tertiary-fixed-dim": "#62df7d",
+            "secondary-fixed": "#ffddb8",
+            "on-error-container": "#93000a",
+            "surface-container-highest": "#d8e3fb",
+            "primary-fixed": "#ffdad5",
+            "on-secondary-fixed-variant": "#653e00",
+            "surface-dim": "#cfdaf2",
+            "on-tertiary": "#ffffff",
+            "on-error": "#ffffff",
+            "on-tertiary-fixed": "#002109",
+            "secondary-container": "#fea619"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "gutter": "1rem",
+            "space-xl": "2rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "margin": "1rem"
+          },
+          "fontFamily": {
+            "label-md": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-sm": ["Epilogue"],
+            "display-lg": ["Epilogue"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Epilogue"],
+            "title-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Epilogue"],
+            "headline-lg-mobile": ["Epilogue"],
+            "headline-md": ["Epilogue"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "label-md": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+            "label-sm": ["10px", {"lineHeight": "14px", "fontWeight": "700"}],
+            "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+            "display-lg": ["36px", {"lineHeight": "44px", "fontWeight": "800"}],
+            "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+            "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+            "display-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "800"}],
+            "title-md": ["16px", {"lineHeight": "22px", "fontWeight": "700"}],
+            "headline-lg": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+            "headline-lg-mobile": ["22px", {"lineHeight": "30px", "fontWeight": "700"}],
+            "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+            "label-lg": ["14px", {"lineHeight": "20px", "fontWeight": "700"}],
+            "body-sm": ["12px", {"lineHeight": "18px", "fontWeight": "400"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      display: none;
+    }
+    .custom-scroll {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .dish-card-shadow {
+      box-shadow: 0 4px 14px rgba(224, 41, 36, 0.07), 0 1px 3px rgba(17, 28, 45, 0.05);
+    }
+    .cart-float-shadow {
+      box-shadow: 0 14px 34px rgba(17, 28, 45, 0.22), 0 3px 8px rgba(224, 41, 36, 0.12);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen pb-32">
+<!-- ================= TOP APP BAR (Shared Component JSON Source) ================= -->
+<header class="fixed top-0 left-0 w-full z-40 flex justify-between items-center px-gutter h-14 bg-surface dark:bg-inverse-surface shadow-sm dark:shadow-none border-b border-outline-variant/30">
+<div class="flex items-center gap-2">
+<button aria-label="Menu list" class="w-9 h-9 rounded-full flex items-center justify-center text-primary dark:text-inverse-primary hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors duration-150 active:scale-95 transition-transform duration-150" type="button">
+<span class="material-symbols-outlined" data-icon="restaurant_menu">restaurant_menu</span>
+</button>
+<div class="flex flex-col">
+<span class="text-headline-sm font-headline-sm font-extrabold text-primary dark:text-inverse-primary tracking-wide">Patel's Crazy Indian</span>
+<span class="text-label-sm font-label-sm text-secondary -mt-1 font-bold tracking-tight">THE FESTIVE TREAT</span>
+</div>
+</div>
+<!-- Right Actions: Search & Cart Button with Count Badge -->
+<div class="flex items-center gap-1.5">
+<button aria-label="Search feast" class="w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button aria-label="Shopping bag" class="relative w-9 h-9 rounded-full flex items-center justify-center text-primary dark:text-inverse-primary hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors duration-150 active:scale-95 transition-transform duration-150" type="button">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+<span class="absolute top-1 right-1 w-4 h-4 bg-primary text-on-primary text-[10px] font-extrabold rounded-full flex items-center justify-center border-2 border-surface">2</span>
+</button>
+</div>
+</header>
+<!-- ================= SUB-HEADER: DINE-IN / DELIVERY CONTEXT ================= -->
+<div class="pt-14 bg-surface-container-low px-gutter pb-3 border-b border-outline-variant/20">
+<div class="max-w-md mx-auto pt-2 flex items-center justify-between">
+<!-- Dining Context Pill Selector -->
+<div class="flex items-center gap-2 bg-surface-container-lowest px-3 py-1.5 rounded-full border border-outline-variant/40 shadow-sm">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="table_restaurant">table_restaurant</span>
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-on-surface font-bold leading-none">Table #12 • Ground Floor</span>
+<span class="text-[9px] font-label-sm text-on-surface-variant leading-tight">Dine-in Order</span>
+</div>
+<span class="material-symbols-outlined text-outline text-xs cursor-pointer ml-1" data-icon="expand_more">expand_more</span>
+</div>
+<!-- Quick Switch to Takeaway / Room Delivery -->
+<button class="flex items-center gap-1 bg-surface-container-high hover:bg-surface-container-highest px-2.5 py-1.5 rounded-full transition-colors active:scale-95" type="button">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="moped">moped</span>
+<span class="text-label-sm font-label-sm text-on-surface font-semibold">Takeaway?</span>
+</button>
+</div>
+</div>
+<!-- ================= HERO BENTO PROMO STRIP ================= -->
+<section class="max-w-md mx-auto px-gutter pt-3">
+<div class="bg-gradient-to-r from-primary to-primary-container rounded-xl p-3.5 text-on-primary relative overflow-hidden shadow-sm">
+<div class="relative z-10 max-w-[70%]">
+<div class="inline-flex items-center gap-1 bg-secondary-container/90 text-on-secondary-fixed px-2 py-0.5 rounded-full text-label-sm font-label-sm mb-1.5 font-bold uppercase tracking-wider">
+<span class="material-symbols-outlined text-xs" data-icon="local_fire_department" data-weight="fill" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+          Crazy Festive Offer
+        </div>
+<h2 class="text-title-md font-title-md font-bold leading-tight drop-shadow-sm">Royal Thali &amp; Chaat Combo</h2>
+<p class="text-body-sm font-body-sm opacity-90 mt-0.5 line-clamp-1">Free Mango Kulfi on orders over $30 with code CRAZYFEST</p>
+</div>
+<div class="absolute -right-3 -bottom-4 w-28 h-28 opacity-90 transform rotate-6">
+<img class="w-full h-full object-cover rounded-xl" data-alt="A festive assortment of colorful Indian street food dishes including crispy golden puris, sweet yoghurt garnish, and vibrantly spiced curries in brass bowls bathed in warm radiant sunlight with rich festive vermilion and golden tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFqs-5t0S-FKz2zJcniKgdlqJY1CaRlm709_OtnJ8ytKBEv9Y4Ej_9soyMJyJ4nN0G1BnSsnTATGgFqKAmYVFkC9UEeGGTHc4vmEAqYHchmhxrYCGf01zB7xxSF15loTsc1CqlpBzR35M4SlGmkJQ4P1rOLnNEDynwnq8A7ptFI3u_Gd4mI7ExiwkTqCwqttSBiLLCVRPoA-6LfflehD8h8225DHqbhWrOdnIJrlWXVEbQj0lZEptg"/>
+</div>
+</div>
+</section>
+<!-- ================= DIETARY & SPICE FILTER CHIPS ================= -->
+<section class="max-w-md mx-auto pt-3 px-gutter">
+<div class="flex items-center gap-2 overflow-x-auto custom-scroll pb-1">
+<!-- Active 'All' Filter -->
+<button class="whitespace-nowrap px-3.5 py-1.5 rounded-full text-label-md font-label-md bg-on-surface text-surface-container-lowest font-bold shadow-sm transition-transform active:scale-95" type="button">
+        All Bites
+      </button>
+<!-- Pure Veg Tag with standard Green Border Box -->
+<button class="whitespace-nowrap flex items-center gap-1.5 px-3 py-1.5 rounded-full text-label-md font-label-md bg-surface-container-lowest border border-tertiary-container/30 text-tertiary hover:bg-tertiary-fixed/30 transition-all active:scale-95 shadow-sm" type="button">
+<span class="w-3.5 h-3.5 border-2 border-tertiary flex items-center justify-center rounded-[2px] p-[1px]">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+</span>
+        Pure Veg
+      </button>
+<!-- Non-Veg Tag -->
+<button class="whitespace-nowrap flex items-center gap-1.5 px-3 py-1.5 rounded-full text-label-md font-label-md bg-surface-container-lowest border border-primary/20 text-primary hover:bg-primary-fixed/30 transition-all active:scale-95 shadow-sm" type="button">
+<span class="w-3.5 h-3.5 border-2 border-primary flex items-center justify-center rounded-[2px] p-[1px]">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+</span>
+        Non-Veg
+      </button>
+<!-- Jain Friendly -->
+<button class="whitespace-nowrap flex items-center gap-1 px-3 py-1.5 rounded-full text-label-md font-label-md bg-surface-container-lowest border border-secondary/30 text-secondary hover:bg-secondary-fixed/40 transition-all active:scale-95 shadow-sm" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="eco">eco</span>
+        Jain Option
+      </button>
+<!-- Crazy Spicy -->
+<button class="whitespace-nowrap flex items-center gap-1 px-3 py-1.5 rounded-full text-label-md font-label-md bg-surface-container-lowest border border-primary-container/30 text-primary-container hover:bg-primary-fixed/20 transition-all active:scale-95 shadow-sm" type="button">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="local_fire_department" data-weight="fill" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+        Crazy Spicy
+      </button>
+</div>
+</section>
+<!-- ================= STICKY CATEGORY NAV ================= -->
+<nav class="sticky top-14 z-30 bg-surface/95 backdrop-blur-md border-b border-outline-variant/30 py-2.5 px-gutter mt-2 shadow-xs">
+<div class="max-w-md mx-auto flex items-center gap-3 overflow-x-auto custom-scroll">
+<a class="whitespace-nowrap text-label-md font-label-md text-primary font-bold border-b-2 border-primary pb-1" href="#street-chaats">Street Chaats</a>
+<a class="whitespace-nowrap text-label-md font-label-md text-on-surface-variant hover:text-on-surface font-semibold pb-1" href="#tandoor">Tandoor Starters</a>
+<a class="whitespace-nowrap text-label-md font-label-md text-on-surface-variant hover:text-on-surface font-semibold pb-1" href="#gravies">Royal Gravies</a>
+<a class="whitespace-nowrap text-label-md font-label-md text-on-surface-variant hover:text-on-surface font-semibold pb-1" href="#breads-rice">Breads &amp; Biryani</a>
+<a class="whitespace-nowrap text-label-md font-label-md text-on-surface-variant hover:text-on-surface font-semibold pb-1" href="#desserts">Festive Desserts</a>
+</div>
+</nav>
+<!-- ================= MAIN CULINARY CATALOG ================= -->
+<main class="max-w-md mx-auto px-gutter pt-4 space-y-6">
+<!-- CATEGORY 1: STREET CHAATS -->
+<section class="space-y-3" id="street-chaats">
+<div class="flex items-center justify-between border-l-4 border-primary pl-2.5 py-0.5">
+<div>
+<h3 class="text-headline-sm font-headline-sm font-bold text-on-surface">Street Chaats</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Bursting with sweet, tangy, and crunchy Mumbai street flavors</p>
+</div>
+<span class="text-label-sm font-label-sm bg-surface-container px-2 py-0.5 rounded-full font-bold text-on-surface-variant">4 items</span>
+</div>
+<!-- DISH ITEM 1: Crazy Dahi Puri Blast -->
+<article class="bg-surface-container-lowest rounded-xl p-3.5 dish-card-shadow border border-outline-variant/25 transition-all">
+<div class="flex gap-3">
+<!-- Dish Image with Veg and Special Badge -->
+<div class="relative w-24 h-24 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Platter of golden crisp round dahi puri puffed shells loaded with seasoned potato mash, sweet curd yogurt, bright green coriander mint sauce, date-tamarind glaze, and fine yellow sev noodles with edible flower accents in a warm festive kitchen setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP__yW9QXBVAldme3GXXkOL9nii5WCYlNdc7KlKVrVr0UJGMKuKmCOYyqRt7d2LZJfxuQ6fBJ8g_jSFnYdb2p_A47VpFoX_V-zVSrAW1awEzjmzxV4_j9UziFPl9A0ylbaEC2LDzR8yBvp9vIdYYvd2D6Krx2hGFQGQsIYvCfTOXI2FoKV3Cnt4wTtIuHGxT7Z6IEiN9Y0npzIZsg7bE1w5-lEKaBIIb4ijC_Q-JUN6yfPsKw3xL5b"/>
+<span class="absolute top-1 left-1 bg-surface-container-lowest/90 rounded-[3px] p-0.5 shadow-sm">
+<span class="w-3 h-3 border-2 border-tertiary flex items-center justify-center rounded-[2px]">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+</span>
+</span>
+</div>
+<!-- Dish Info -->
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between">
+<h4 class="text-title-md font-title-md font-bold text-on-surface leading-tight">Crazy Dahi Puri Blast</h4>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant line-clamp-2 mt-1">Crispy puris stuffed with spiced potatoes, sweetened curd, tangy tamarind chutney &amp; nylon sev.</p>
+<!-- Spice Gauge & Badges -->
+<div class="flex items-center gap-2 mt-1.5">
+<div class="flex items-center gap-0.5 text-primary text-xs" title="Medium Spicy">
+<span class="material-symbols-outlined text-[14px]" data-icon="local_fire_department" data-weight="fill" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="local_fire_department" data-weight="fill" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="material-symbols-outlined text-[14px] text-outline-variant" data-icon="local_fire_department">local_fire_department</span>
+</div>
+<span class="text-[11px] font-label-sm text-secondary font-bold bg-secondary-fixed/50 px-1.5 py-0.2 rounded">Jain Avail</span>
+</div>
+</div>
+<!-- Price and Quantity Stepper / Add Button -->
+<div class="flex items-center justify-between mt-3 pt-2 border-t border-outline-variant/15">
+<span class="text-headline-sm font-headline-sm font-bold text-primary">$7.99</span>
+<!-- Active Stepper State for item already in cart -->
+<div class="flex items-center bg-primary text-on-primary rounded-full px-2 py-1 shadow-sm gap-2">
+<button aria-label="Decrease quantity" class="w-5 h-5 flex items-center justify-center font-extrabold text-sm active:scale-90" type="button">－</button>
+<span class="text-label-md font-label-md font-extrabold px-1">1</span>
+<button aria-label="Increase quantity" class="w-5 h-5 flex items-center justify-center font-extrabold text-sm active:scale-90" type="button">＋</button>
+</div>
+</div>
+</div>
+</div>
+</article>
+</section>
+<!-- CATEGORY 2: ROYAL GRAVIES -->
+<section class="space-y-3 pt-2" id="gravies">
+<div class="flex items-center justify-between border-l-4 border-secondary pl-2.5 py-0.5">
+<div>
+<h3 class="text-headline-sm font-headline-sm font-bold text-on-surface">Royal Gravies</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Velvety butter gravies slow-simmered over open charcoal embers</p>
+</div>
+<span class="text-label-sm font-label-sm bg-surface-container px-2 py-0.5 rounded-full font-bold text-on-surface-variant">6 items</span>
+</div>
+<!-- DISH ITEM 2: Smoky Butter Paneer / Chicken -->
+<article class="bg-surface-container-lowest rounded-xl p-3.5 dish-card-shadow border border-outline-variant/25 transition-all">
+<div class="flex gap-3">
+<!-- Thumbnail -->
+<div class="relative w-24 h-24 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Rich velvety Indian butter masala curry served inside a traditional copper handi bowl garnished with a swirl of fresh heavy cream, fresh fenugreek leaves, and melted butter, bathed in dramatic warm restaurant culinary lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbz4H1ta9HeEIXLevNfd4AGaPWycVxo3U2pL_5lJ4Pk-OAO8NkjwkVN7E2osgkv2RmcGhAHX_OmHzC596lYI8PVWb0lszKQTyN3LBiKuIIltwvoesGm0BibKusye4vDU2QTlW1uBlAAyAzHIKmNeULdlm8y9oItRHtY4xtq97GaP0_7BDHrnRhGE30mNfPFPu4ODJ0V6tRrCkYOv2IMDYNXtvzOi5KV3GQB-ff2Znluu9yoVTqDJsG"/>
+<span class="absolute top-1 left-1 bg-surface-container-lowest/90 rounded-[3px] p-0.5 shadow-sm">
+<span class="w-3 h-3 border-2 border-primary flex items-center justify-center rounded-[2px]">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+</span>
+</span>
+<span class="absolute bottom-1 right-1 bg-primary text-on-primary text-[9px] font-label-sm font-bold px-1 rounded shadow-xs">Chef Pick</span>
+</div>
+<!-- Info -->
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<h4 class="text-title-md font-title-md font-bold text-on-surface leading-tight">Smoky Butter Paneer / Chicken</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant line-clamp-2 mt-1">Charcoal-smoked rich tomato cashew makhani sauce infused with kasuri methi &amp; churned butter.</p>
+<!-- Spice Gauge & Options -->
+<div class="flex items-center gap-2 mt-1.5">
+<div class="flex items-center gap-0.5 text-primary text-xs" title="Mild Spicy">
+<span class="material-symbols-outlined text-[14px]" data-icon="local_fire_department" data-weight="fill" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="material-symbols-outlined text-[14px] text-outline-variant" data-icon="local_fire_department">local_fire_department</span>
+<span class="material-symbols-outlined text-[14px] text-outline-variant" data-icon="local_fire_department">local_fire_department</span>
+</div>
+<span class="text-[11px] font-label-sm text-tertiary font-bold bg-tertiary-fixed/40 px-1.5 py-0.2 rounded">Customizable</span>
+</div>
+</div>
+<!-- Price and Stepper/Add -->
+<div class="flex items-center justify-between mt-3 pt-2 border-t border-outline-variant/15">
+<span class="text-headline-sm font-headline-sm font-bold text-primary">$14.99</span>
+<button class="flex items-center gap-1 bg-primary hover:bg-primary-container text-on-primary px-3 py-1.5 rounded-full text-label-md font-label-md font-bold active:scale-95 transition-all shadow-sm" type="button">
+<span class="material-symbols-outlined text-sm font-bold" data-icon="add">add</span>
+                ADD
+              </button>
+</div>
+</div>
+</div>
+</article>
+</section>
+<!-- CATEGORY 3: BREADS & BIRYANI -->
+<section class="space-y-3 pt-2" id="breads-rice">
+<div class="flex items-center justify-between border-l-4 border-secondary-container pl-2.5 py-0.5">
+<div>
+<h3 class="text-headline-sm font-headline-sm font-bold text-on-surface">Breads &amp; Biryani</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Royal clay pot dum biryanis layered with saffron basmati</p>
+</div>
+<span class="text-label-sm font-label-sm bg-surface-container px-2 py-0.5 rounded-full font-bold text-on-surface-variant">5 items</span>
+</div>
+<!-- DISH ITEM 3: Hyderabadi Dum Gosht Biryani -->
+<article class="bg-surface-container-lowest rounded-xl p-3.5 dish-card-shadow border border-outline-variant/25 transition-all">
+<div class="flex gap-3">
+<div class="relative w-24 h-24 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Authentic royal Hyderabadi biryani steaming in an earthen terracotta pot with visible layers of golden saffron basmati rice, tender spiced meat, caramelized onions, fresh mint sprigs, and roasted cashews with soft cinematic ambient lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcjMaFYWyVuXJFMWwh1eg2bC84atZbscaqVOJoG7mGCFesWFZ_-4W17F1iocMQ4V4z86hGpSxcyXMAY2TufzCwX_Mz1LNA-CRPthhg0qY73tYrJ0IosozACIYUemZM1iGJGiiEaR-H5RLUFuZddvwvNji7dF2I7UQObjU2Cfg6JmYMOYQTEYAKmt2fH0G0rcd_53G17U4YCRX7dcgnnWyDz50GsZ_MdUu_KKozNWfXulGtn_bDETG7"/>
+<span class="absolute top-1 left-1 bg-surface-container-lowest/90 rounded-[3px] p-0.5 shadow-sm">
+<span class="w-3 h-3 border-2 border-primary flex items-center justify-center rounded-[2px]">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+</span>
+</span>
+</div>
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<h4 class="text-title-md font-title-md font-bold text-on-surface leading-tight">Hyderabadi Dum Gosht Biryani</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant line-clamp-2 mt-1">Slow-cooked aromatic basmati rice layered with royal whole spices, caramelized onions &amp; fresh mint.</p>
+<div class="flex items-center gap-2 mt-1.5">
+<div class="flex items-center gap-0.5 text-primary text-xs" title="Crazy Spicy">
+<span class="material-symbols-outlined text-[14px]" data-icon="local_fire_department" data-weight="fill" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="local_fire_department" data-weight="fill" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="local_fire_department" data-weight="fill" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+<span class="text-[11px] font-label-sm text-error font-bold bg-error-container/60 px-1.5 py-0.2 rounded">Crazy Spicy</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-3 pt-2 border-t border-outline-variant/15">
+<span class="text-headline-sm font-headline-sm font-bold text-primary">$16.50</span>
+<!-- Active Stepper State: 1 item in plate -->
+<div class="flex items-center bg-primary text-on-primary rounded-full px-2 py-1 shadow-sm gap-2">
+<button aria-label="Decrease quantity" class="w-5 h-5 flex items-center justify-center font-extrabold text-sm active:scale-90" type="button">－</button>
+<span class="text-label-md font-label-md font-extrabold px-1">1</span>
+<button aria-label="Increase quantity" class="w-5 h-5 flex items-center justify-center font-extrabold text-sm active:scale-90" type="button">＋</button>
+</div>
+</div>
+</div>
+</div>
+</article>
+</section>
+<!-- CATEGORY 4: FESTIVE DESSERTS -->
+<section class="space-y-3 pt-2" id="desserts">
+<div class="flex items-center justify-between border-l-4 border-tertiary-container pl-2.5 py-0.5">
+<div>
+<h3 class="text-headline-sm font-headline-sm font-bold text-on-surface">Festive Desserts</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Sweet royal indulgences drenched in saffron rabdi and cardamom</p>
+</div>
+<span class="text-label-sm font-label-sm bg-surface-container px-2 py-0.5 rounded-full font-bold text-on-surface-variant">3 items</span>
+</div>
+<!-- DISH ITEM 4: Gulab Jamun Sizzler with Rabdi -->
+<article class="bg-surface-container-lowest rounded-xl p-3.5 dish-card-shadow border border-outline-variant/25 transition-all">
+<div class="flex gap-3">
+<div class="relative w-24 h-24 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Decadent warm dark golden gulab jamun dumplings sizzling on a cast-iron platter, smothered with thick creamy cardamom-saffron rabdi, sprinkled with slivered pistachios and silver vark leaf, high-contrast festive gourmet photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAu94pb9jXOsnuzZMviXPdE7gLrNbuTBrFiE59hrReCzxpMDTogjjV9sfCcrEXrOVkmQWcgZS9ZpJLt8NlyqkwNxJwLTbek1GGrrbd-XEjgsCBSjvUg6fHmD9dS5Grh8SHjp_hj_oD4lj4hD3-mhCTtj39fJBtucvi3xkwcsjl26MjCyecEwc025RJf5GPE64IrbYH1xkaJWIzhXIunn4SweNDEvozOhe_fXXwRPYgJQu2-JADpyajW"/>
+<span class="absolute top-1 left-1 bg-surface-container-lowest/90 rounded-[3px] p-0.5 shadow-sm">
+<span class="w-3 h-3 border-2 border-tertiary flex items-center justify-center rounded-[2px]">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+</span>
+</span>
+</div>
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<h4 class="text-title-md font-title-md font-bold text-on-surface leading-tight">Gulab Jamun Sizzler with Rabdi</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant line-clamp-2 mt-1">Warm condensed milk dumplings served on an iron sizzler plate topped with chilled saffron rabdi &amp; pistachios.</p>
+<div class="flex items-center gap-2 mt-1.5">
+<span class="text-[11px] font-label-sm text-tertiary font-bold bg-tertiary-fixed/40 px-1.5 py-0.2 rounded">Sweet Indulgence</span>
+<span class="text-[11px] font-label-sm text-secondary font-bold bg-secondary-fixed/50 px-1.5 py-0.2 rounded">Best Seller</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-3 pt-2 border-t border-outline-variant/15">
+<span class="text-headline-sm font-headline-sm font-bold text-primary">$6.99</span>
+<button class="flex items-center gap-1 bg-primary hover:bg-primary-container text-on-primary px-3 py-1.5 rounded-full text-label-md font-label-md font-bold active:scale-95 transition-all shadow-sm" type="button">
+<span class="material-symbols-outlined text-sm font-bold" data-icon="add">add</span>
+                ADD
+              </button>
+</div>
+</div>
+</div>
+</article>
+</section>
+</main>
+<!-- ================= FLOATING STICKY CART BAR ================= -->
+<!-- Anchored above BottomNavBar (16px bottom gap with safe padding) -->
+<aside class="fixed bottom-16 left-0 w-full z-40 px-gutter pointer-events-none">
+<div class="max-w-md mx-auto pointer-events-auto">
+<div class="bg-inverse-surface text-inverse-on-surface rounded-xl p-3 px-4 cart-float-shadow flex items-center justify-between border border-secondary-container/30">
+<div class="flex items-center gap-3">
+<div class="relative w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-base" data-icon="restaurant">restaurant</span>
+<span class="absolute -top-1 -right-1 w-4 h-4 bg-secondary-container text-on-secondary-fixed font-black text-[9px] rounded-full flex items-center justify-center">2</span>
+</div>
+<div class="flex flex-col">
+<span class="text-label-md font-label-md font-bold text-inverse-on-surface">2 items in plate</span>
+<span class="text-body-sm font-body-sm font-extrabold text-secondary-fixed-dim">$24.49 <span class="text-[10px] font-normal opacity-75">+ taxes</span></span>
+</div>
+</div>
+<button class="flex items-center gap-1.5 bg-primary-container hover:bg-primary text-on-primary-container font-label-md text-label-md font-bold px-4 py-2 rounded-full shadow-md active:scale-95 transition-all" type="button">
+<span>View Feast Tray</span>
+<span class="material-symbols-outlined text-base" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</aside>
+<!-- ================= BOTTOM NAVIGATION BAR (Shared Component JSON Source) ================= -->
+<!-- Destination tab 'Menu' is semantically active matching this food catalog screen -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-space-sm py-space-xs pb-safe bg-surface-container-lowest dark:bg-inverse-surface border-t border-secondary-container/20 shadow-lg dark:shadow-none rounded-t-xl">
+<!-- Tab 1: Feast (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant font-label-sm text-label-sm py-1 hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150 active:scale-95 transition-transform duration-150" href="#feast">
+<span class="material-symbols-outlined text-xl" data-icon="storefront">storefront</span>
+<span class="text-label-sm font-label-sm mt-0.5">Feast</span>
+</a>
+<!-- Tab 2: Menu (ACTIVE DESTINATION - Direct Match) -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-3 py-1 font-label-sm text-label-sm hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150 active:scale-95 transition-transform duration-150" href="#menu">
+<span class="material-symbols-outlined text-xl" data-icon="lunch_dining" data-weight="fill" style="font-variation-settings: 'FILL' 1;">lunch_dining</span>
+<span class="text-label-sm font-label-sm mt-0.5">Menu</span>
+</a>
+<!-- Tab 3: Book Table (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant font-label-sm text-label-sm py-1 hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150 active:scale-95 transition-transform duration-150" href="#book-table">
+<span class="material-symbols-outlined text-xl" data-icon="event_seat">event_seat</span>
+<span class="text-label-sm font-label-sm mt-0.5">Book Table</span>
+</a>
+<!-- Tab 4: My Orders (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant font-label-sm text-label-sm py-1 hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150 active:scale-95 transition-transform duration-150" href="#orders">
+<span class="material-symbols-outlined text-xl" data-icon="receipt_long">receipt_long</span>
+<span class="text-label-sm font-label-sm mt-0.5">My Orders</span>
+</a>
+</nav>
+<!-- ================= MICRO-INTERACTIONS SCRIPT ================= -->
+<script>
+    // Smooth interaction for filter chips
+    document.querySelectorAll('section button').forEach(button => {
+      button.addEventListener('click', function() {
+        if (this.innerText.includes('ADD')) {
+          this.innerHTML = '<span class="material-symbols-outlined text-sm font-bold" data-icon="check">check</span> ADDED';
+          this.classList.remove('bg-primary');
+          this.classList.add('bg-tertiary');
+          setTimeout(() => {
+            this.innerHTML = '<span class="material-symbols-outlined text-sm font-bold" data-icon="add">add</span> ADD';
+            this.classList.remove('bg-tertiary');
+            this.classList.add('bg-primary');
+          }, 1200);
+        }
+      });
+    });
+  </script>
+</body></html>
